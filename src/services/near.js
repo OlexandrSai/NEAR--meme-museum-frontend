@@ -1,10 +1,10 @@
 import { keyStores, Near, WalletConnection, utils } from "near-api-js";
 import BN from "bn.js";
 
-export const CONTRACT_ID = "museum.testnet";
+export const CONTRACT_ID = "dev-1631287157094-93706410058436";
 const gas = new BN("70000000000000");
 
-// use new NEAR here to avoid needing async/await
+// use new NEAR to avoid async/await
 export const near = new Near({
   networkId: "testnet",
   keyStore: new keyStores.BrowserLocalStorageKeyStore(),
@@ -12,15 +12,14 @@ export const near = new Near({
   walletUrl: "https://wallet.testnet.near.org",
 });
 
-// can now create a new WalletConnection with the created Near object
 export const wallet = new WalletConnection(near, "museum");
 
-// a service to get memes from the blockchain
+// function  to get Memes
 export const getMemes = () => {
   return wallet.account().viewFunction(CONTRACT_ID, "get_meme_list", {});
 };
 
-// a service to add a meme from the blockchain but this is not working for now
+// function  to add  meme (not working)
 export const addMeme = ({ meme, title, data, category }) => {
   return wallet.account().functionCall({
     contractId: CONTRACT_ID,
@@ -30,13 +29,14 @@ export const addMeme = ({ meme, title, data, category }) => {
     attachedDeposit: utils.format.parseNearAmount("3"),
   });
 };
-// a service to get a single meme's info
+
+// function  to get  info about meme
 export const getMeme = (meme) => {
   const memeContractId = meme + "." + CONTRACT_ID;
   return wallet.account().viewFunction(memeContractId, "get_meme", {});
 };
 
-// a service to get a single meme's comments
+// function to get  meme`s  comment
 export const getMemeComments = (meme) => {
   const memeContractId = meme + "." + CONTRACT_ID;
   return wallet
@@ -44,7 +44,7 @@ export const getMemeComments = (meme) => {
     .viewFunction(memeContractId, "get_recent_comments", {});
 };
 
-// a service to add a comment to a meme
+// function  to  add comment
 export const addComment = ({ memeId, text }) => {
   const memeContractId = `${memeId}.${CONTRACT_ID}`;
   return wallet.account().functionCall({
