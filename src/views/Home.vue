@@ -1,16 +1,33 @@
 <template>
   <Header/>
-  <main-section/>
+  <section>
+        <div class="container mx-auto">
+            <div class="grid grid-cols-12 px-6 md:space-x-6">
+                <sign-up/>
+                <div class="col-span-12 md:col-span-6 ">
+                    <popularity/>
+                    <meme/>
+                </div>
+                <category/>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
-import MainSection from '@/components/MainSection.vue'
+import Category from '@/components/Category.vue'
+import Meme from '@/components/Meme.vue'
+import Popularity from '@/components/Popularity.vue'
+import SignUp from '@/components/SignUp.vue'
 import { useMemes } from "@/composables/near"
 export default {
     components: {
         Header,
-        MainSection
+        Category,
+        Meme,
+        Popularity,
+        SignUp
     },
     setup() {
       const { memes, addMeme, addComment, donate, vote } = useMemes();
