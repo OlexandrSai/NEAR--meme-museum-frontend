@@ -5,7 +5,12 @@
             <div class="grid grid-cols-12 px-6 md:space-x-6">
                 <div class="col-span-12 md:col-span-6 ">
                     <popularity/>
-                    <meme/>
+                    <meme 
+                      :memes="memes"
+                      :addComment="addComment"
+                      :donate="donate"
+                      :vote="vote"
+                    />
                 </div>
                 <category/>
             </div>
