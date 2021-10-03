@@ -11,6 +11,7 @@
     "core-js": "^3.6.5",
     "date-fns": "^2.24.0",
     "near-api-js": "^0.43.1",
+    "vee-validate": "^4.4.7",
     "vue": "^3.0.0"
   },
   "devDependencies": {
