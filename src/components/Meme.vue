@@ -1,31 +1,58 @@
 <template>
   <div class="mt-1">
                         <!-- Meme -->
-                        <div class="p-4 bg-white rounded-md">
-                            <img src="@/assets/meme.png" alt="" class="w-full">
+                        <div class="p-4 bg-white rounded-md"
+                            v-for="meme  in memes"
+                            :key="meme"
+                            >
+
+                            <a 
+                                :href="meme.info.data"
+                                rel="noopener noreferrer nofollow"
+                                target="_blank">
+                                
+                                <img class="w-full"
+                                :src="meme.image"
+                                :alt="meme.info.title"/>
+
+                            </a>
+
                             <div class="mt-3 flex">
                                 <div class="">
-                                    <h2 class="text-xl text-gray-900 font-medium">El hopaness</h2>
-                                    <h3 class="text-gray-600">nazarh2onyzhynk.near</h3>
+                                    <h2 class="text-xl text-gray-900 font-medium">{{meme.info.title}}</h2>
+                                    <h3 class="text-gray-600">{{meme.id}}.dev-1631287157094-93706410058436</h3>
                                 </div>
                                 <div class="ml-auto">
-                                    <h4 class="text-gray-600">Aug 13th 2021</h4>
+                                    <h4 class="text-gray-600">
+                                        {{
+                                        format(
+                                            new Date(
+                                            fromUnixTime(
+                                            parseInt(meme.info.created_at.substring(0, 10))
+                                            )
+                                        ),
+                                        "MMM do yyyy"
+                                        )
+                                        }}
+                                    </h4>
                                 </div>
                             </div>
+
                             <div class="mt-6 grid grid-cols-3 space-x-6">
                                 <div class="">
                                     <h5 class="text-gray-600 font-light text-xl text-center">Donations</h5>
-                                    <h6 class="text-xl text-gray-800 font-medium text-center">2 Ⓝ</h6>
+                                    <h6 class="text-xl text-gray-800 font-medium text-center"> {{ meme.info.total_donations / 1e24 }} Ⓝ</h6>
                                 </div>
                                 <div class="">
                                     <h5 class="text-gray-600 font-light text-xl text-center">Category</h5>
-                                    <h6 class="text-xl text-gray-800 font-medium text-center">Cats</h6>
+                                    <h6 class="text-xl text-gray-800 font-medium text-center">{{meme.info.category}}</h6>
                                 </div>
                                 <div class="">
                                     <h5 class="text-gray-600 font-light text-xl text-center">Score</h5>
-                                    <h6 class="text-xl text-gray-800 font-medium text-center">6</h6>
+                                    <h6 class="text-xl text-gray-800 font-medium text-center">{{meme.info.vote_score}}</h6>
                                 </div>
                             </div>
+
                             <div class="mt-6 p-6 bg-indigo-200 flex items-center rounded-md">
                                 <p class="text-xl text-gray-900 font-medium">Vote</p>
                                 <ul class="flex ml-6 space-x-4">
@@ -46,8 +73,10 @@
                                 </ul>
                                 <a href="#" class="block ml-auto py-2 px-4 hover:bg-indigo-300 rounded-md border border-gray-900 font-medium">Donate 1 Ⓝ</a>
                             </div>
+
                             <hr class="mt-6 bg-gray-200">
                             <comment-form/>
+
                         </div>
                     </div>
 </template>
@@ -55,7 +84,6 @@
 <script>
 import { format, fromUnixTime } from "date-fns";
 import CommentForm from '@/components/CommentForm.vue';
-
 
 export default {
     components: {

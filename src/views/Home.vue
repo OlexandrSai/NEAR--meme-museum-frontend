@@ -5,7 +5,6 @@
             <div class="grid grid-cols-12 px-6 md:space-x-6">
             <AddMemeForm :addMeme="addMeme" :memes="memes"/>
                 <div class="col-span-12 md:col-span-6 ">
-                    <popularity/>
                     <meme 
                       :memes="memes"
                       :addComment="addComment"
@@ -23,7 +22,6 @@
 import Header from '@/components/Header.vue'
 import Category from '@/components/Category.vue'
 import Meme from '@/components/Meme.vue'
-import Popularity from '@/components/Popularity.vue'
 import AddMemeForm from '@/components/AddMemeForm.vue'
 import { useMemes } from "@/composables/near"
 export default {
@@ -31,7 +29,6 @@ export default {
         Header,
         Category,
         Meme,
-        Popularity,
         AddMemeForm
     },
     setup() {
