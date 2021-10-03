@@ -3,6 +3,7 @@
   <section>
         <div class="container mx-auto">
             <div class="grid grid-cols-12 px-6 md:space-x-6">
+            <AddMemeForm/>
                 <div class="col-span-12 md:col-span-6 ">
                     <popularity/>
                     <meme 
@@ -23,13 +24,15 @@ import Header from '@/components/Header.vue'
 import Category from '@/components/Category.vue'
 import Meme from '@/components/Meme.vue'
 import Popularity from '@/components/Popularity.vue'
+import AddMemeForm from '@/components/AddMemeForm.vue'
 import { useMemes } from "@/composables/near"
 export default {
     components: {
         Header,
         Category,
         Meme,
-        Popularity
+        Popularity,
+        AddMemeForm
     },
     setup() {
       const { memes, addMeme, addComment, donate, vote } = useMemes();
