@@ -1,7 +1,7 @@
 <template>
   <div class="col-span-12 md:col-span-3 ">
               <!-- Add section open -->
-                    <div class="mt-6 px-6 py-4 w-full rounded-md bg-indigo-200">
+                    <!-- <div class="mt-6 px-6 py-4 w-full rounded-md bg-indigo-200">
                         <div class="flex justify-between items-center">
                             <h3 class="text-lg font-medium text-gray-900">Add meme</h3>
 
@@ -11,7 +11,7 @@
                                 </svg>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Add meme section -->
                     <div class="mt-6 px-6 py-4 w-full rounded-md bg-indigo-200">
