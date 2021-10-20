@@ -1,5 +1,5 @@
 <template>
-  <Header/>
+  <Header :addMeme="addMeme" :memes="memes"/>
   <section>
         <div class="container mx-auto">
             <div class="grid grid-cols-12 px-6 md:space-x-6">

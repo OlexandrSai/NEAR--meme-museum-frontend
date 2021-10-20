@@ -7,19 +7,19 @@
                         </h2>
                     </div>
                     <div class="mt-6 relative">
-                        <img src="@/assets/cat.png" alt="cat" class="" style="width: 100%; height: auto;">
+                        <img  alt="cat" class="" style="width: 100%; height: auto;">
                         <a href="#" class="block relative rounded-md hover:shadow-md">
                             <span class="absolute bottom-2 left-4 text-xl text-white font-medium">Cats</span>
                         </a>
                     </div>
                     <div class="mt-6 relative">
-                        <img src="@/assets/cat.png" alt="cat" class="" style="width: 100%; height: auto;">
+                        <img  alt="cat" class="" style="width: 100%; height: auto;">
                         <a href="#" class="block relative rounded-md hover:shadow-md">
                             <span class="absolute bottom-2 left-4 text-xl text-white font-medium">Cats</span>
                         </a>
                     </div>
                     <div class="mt-6 relative">
-                        <img src="@/assets/cat.png" alt="cat" class="" style="width: 100%; height: auto;">
+                        <img  alt="cat" class="" style="width: 100%; height: auto;">
                         <a href="#" class="block relative rounded-md hover:shadow-md">
                             <span class="absolute bottom-2 left-4 text-xl text-white font-medium">Cats</span>
                         </a>
