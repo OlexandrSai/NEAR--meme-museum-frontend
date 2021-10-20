@@ -1,5 +1,7 @@
 import { ref, onMounted } from "vue";
 import {
+  wallet, 
+  CONTRACT_ID,
   getMemes,
   addMeme,
   getMeme,
@@ -64,3 +66,33 @@ export const useMemes = () => {
     vote: handleVote,
   };
 };
+
+export const useWallet = () => {
+  const accountId = ref("")
+  const err = ref(null)
+
+  onMounted(async () => {
+    try {
+      accountId.value = wallet.getAccountId()
+    } catch (e) {
+      err.value = e;
+      console.log(err.value);
+    }
+  });
+
+  const handleSignIn = () => {
+    wallet.requestSignIn(CONTRACT_ID)
+  };
+
+  const handleSignOut = () => {
+    wallet.signOut();
+    localStorage.removeItem(`near-api-js:keystore:${accountId.value}:testnet`);
+    accountId.value = wallet.getAccountId()
+  };
+
+  return {
+    accountId,
+    signIn: handleSignIn,
+    signOut: handleSignOut
+  }
+}

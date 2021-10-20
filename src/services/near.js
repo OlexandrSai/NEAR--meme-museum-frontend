@@ -12,7 +12,7 @@ export const near = new Near({
   walletUrl: "https://wallet.testnet.near.org",
 });
 
-export const wallet = new WalletConnection(near, "museum");
+export const wallet = new WalletConnection(near, "meme-museum");
 
 // function  to get Memes
 export const getMemes = () => {

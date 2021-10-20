@@ -27,25 +27,21 @@
                     </div>
                 </a>
                 <div class="flex items-center space-x-3">
-                    <div href="#" class="flex items-center">
                         <div class="flex items-center justify-center w-14 h-14 rounded-full bg-white">
                             <img src="@/assets/img/near_logo_stack2.png" alt="">
                         </div>
-    
-                        <div v-if="accountId" class="">
-                            <p class="ml-4 text-white text-sm md:text-xl font-bold">{{accountId}}</p>
-                            <button @click="signOut" class="text-gradient-blue">Log out</button>
+                        
+                        <!-- If logined -->
+                        <div v-if="accountId">
+                            <p class="text-gradient-blue text-sm md:text-base">{{accountId}}</p>
+                            <button @click="signOut" class="text-white font-bold">Log out</button>
                         </div>
-                        <div v-else>
-                             <button @click="signIn" class="ml-4 text-white text-sm md:text-xl font-bold">Log in with
-                             <span class="text-gradient-blue">NEAR Wallet</span>
-                             </button>
-                        </div>
-    
-                    </div>
+
+                        <!-- If don't logined -->
+                        <button v-else @click="signIn" class="ml-4 text-white text-sm md:text-xl font-bold">Log in with <span class="text-gradient-blue">NEAR Wallet</span></button>
+
                 </div>
             </nav>
-                </div>
 
             <!-- Offer -->
             <div class="pb-24 xl:pb-40 2xl:pb-48">
@@ -59,154 +55,63 @@
                         Share your favorite MEME. Comment, vote and <br class="hidden lg:block"> engage with all the cool memes
                     </p>
                 </div>
-                <Form @submit="handleSubmit" :validation-schema="schema" class="mt-14 w-full flex flex-col lg:flex-row justify-center items-baseline lg:space-x-">
-                
-                        <div v-for="field in formFields" :key="field.id" class="mt-4 lg:mt-0">
-                            <p :for="field.id" class="text-gray-400 pl-4">{{field.label}}</p>
-                            <Field
-                                        :v-model="field.id"
-                                        type="text"
-                                        :name="field.id"
-                                        :id="field.id"
-                                        :placeholder="field.label"
-                                        class="w-64 lg:w-44 xl:w-64 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none pl-6"/>
-                                        <ErrorMessage :name="field.id" class="w-64 text-red-500" />
+                <form action="" class="mt-14 w-full">
+
+
+                    <div class="flex flex-col lg:flex-row justify-center items-baseline lg:space-x-5">
+                        <div class="mt-4 lg:mt-0">
+                            <p class="text-gray-400 pl-4">Meme name</p>
+                            <input type="text" placeholder="Chack fight" class="w-64 lg:w-44 xl:w-64 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none pl-6">
                         </div>
                         
                         <div class="mt-4 lg:mt-0">
-                            <p class="text-gray-400 pl-4 lg:pl-0">Category</p>
-                            <Field as="select" class="w-16 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none px-3"
-                            v-model="category"
-                            name="category"
-                            id="category">
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </Field>
+                            <p class="text-gray-400 pl-4">Title</p>
+                            <input type="text" placeholder="Chack fighting" class="w-64 lg:w-44 xl:w-64 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none pl-6">
                         </div>
-                        <button class="mt-4 lg:mt-0">
+                        <div class="mt-4 lg:mt-0">
+                            <p class="text-gray-400 pl-4">9GAG link</p>
+                            <input type="text" placeholder="9gag.com/gag/ayMDG8Y" class="w-64 lg:w-44 xl:w-64 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none pl-6">
+                        </div>
+                        <div class="mt-4 lg:mt-0">
+                            <p class="text-gray-400 pl-4 lg:pl-0">Category</p>
+                            <select name="" id="" class="w-16 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none px-3">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div class="mt-4 lg:mt-0">
                             <p class="hidden lg:block text-transparent">buttons</p>
-                            <a class="inline-block mt-2 w-64 lg:w-44 xl:w-64 py-3 bg-gradient-to-r from-blue-500 hover:from-white active:from-gray-200 to-blue-600 hover:to-white active:to-gray-200 text-white hover:text-blue-600 text-center font-semibold rounded-md">Send</a>
-                        </button>
-                </Form>
+                            <a href="#" class="inline-block mt-2 w-64 lg:w-44 xl:w-64 py-3 bg-gradient-to-r from-blue-500 hover:from-white active:from-gray-200 to-blue-600 hover:to-white active:to-gray-200 text-white hover:text-blue-600 text-center font-semibold rounded-md">Send</a>
+                        </div>
+                    </div>
+
+
+                </form>
             </div>
+        </div>
+
+
     </header>
 </template>
 
 <script>
-import { wallet, CONTRACT_ID } from "@/services/near";
-import { ref, watchEffect } from "vue";
-import { useForm, useField, Form, Field, ErrorMessage } from "vee-validate";
-
 export default {
     props: {
-        addMeme: {
-            type:Function,
-            required:true,
+        accountId: {
+            typeof:String,
+            required:true
         },
-        memes: {
-            type:Array,
-            required:true,
-        }
-    },
-    components: {
-        Form,
-        Field,
-        ErrorMessage
-    },
-    setup(props) {
-        const accountId = wallet.getAccountId();
-        const memesIds = ref();
-        watchEffect(() => {
-            memesIds.value = props.memes.map((meme) => {
-                return meme.id
-            });
-        });
-
-        const schema = {
-            meme(value) {
-                if (!value) {
-                    return "This  field is required";
-                }
-                if (value.length < 2) {
-                    return "minimum length is 2";
-                } 
-                if (value === memesIds.value.find((id) => id === value)) {
-                    return "This meme is already taken, please choose another one";
-                }
-                if (
-                    // eslint-disable-next-line
-                    !/^(([a-z\d]+[\-_])*[a-z\d]+\.)*([a-z\d]+[\-_])*[a-z\d]+$/.test(value)
-                ) {
-                    return "This memeId doesn't follow  the NEAR Protocol account naming system";
-                }
-                return  true;
-            },
-            title(value) {
-                if (!value) {
-                    return "This  field is required";
-                }
-                if (value.length < 2) {
-                    return "minimum length is 2";
-                } 
-                return  true;
-            },
-            data(value) {
-                if (
-                    // eslint-disable-next-line
-                    !/(https:|http:)+(\/\/)+(9gag\.com\/gag\/)+\S/.test(value)
-                ) {
-                    return "This should be a 9gag link";
-                }
-                return true;
-            },
-        };
-
-        useForm({
-            validationSchema: schema
-        });
-
-        // eslint-disable-next-line no-unused-vars
-        const { value: meme, errorMessage: memeError } = useField("meme");
-        // eslint-disable-next-line no-unused-vars
-        const { value: title, errorMessage: titleError } = useField("title");
-        // eslint-disable-next-line no-unused-vars
-        const { value: data, errorMessage: dataError } = useField("data");
-
-        const category =  ref(0);
-
-        const  handleSubmit = (values) => {
-            props.addMeme(values)
-        }
-
-        const  formFields = [
-            {
-                label: "Meme  name",
-                id: "meme",
-            },
-            {
-                label: "Title",
-                id: "title",
-            },
-            {
-                label:"9gag Link",
-                id: "data",
-            },
-        ];
-
-        return {
-            accountId,
-            schema,
-            category,
-            handleSubmit,
-            formFields,
-            signIn: () => wallet.requestSignIn(CONTRACT_ID),
-            signOut: () => {
-                wallet.signOut();
-                window.location.reload();
-            }
-        }
+        signIn: {
+            typeof:Function,
+            required:true
+        },
+        signOut: {
+            typeof:Function,
+            required:true
+        },
     }
 }
 </script>
