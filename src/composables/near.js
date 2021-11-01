@@ -42,33 +42,19 @@ export const useMemes = () => {
     }
   });
 
-  const handleAddMeme = async ({ meme, title, data, category }) => {
-    addMeme({ meme, title, data, category });
-  };
-
-  const handleAddComment = async ({ memeId, text }) => {
-    await addComment({ memeId, text });
-  };
-
-  const handleDonate = async ({ memeId, amount }) => {
-    await donate({ memeId, amount });
-  };
-
-  const handleVote = async ({ memeId, value }) => {
-    await vote({ memeId, value });
-  };
-
   return {
     memes,
-    addMeme: handleAddMeme,
-    addComment: handleAddComment,
-    donate: handleDonate,
-    vote: handleVote,
+    addMeme,
+    addComment,
+    donate,
+    vote,
+    CONTRACT_ID
   };
 };
 
+
 export const useWallet = () => {
-  const accountId = ref("")
+  const accountId = ref('')
   const err = ref(null)
 
   onMounted(async () => {
@@ -88,8 +74,8 @@ export const useWallet = () => {
   };
 
   const handleSignOut = () => {
-    wallet.signOut();
-    accountId.value = wallet.getAccountId()
+    wallet.signOut()
+    accountId.value = ''
   };
 
   return {

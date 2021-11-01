@@ -1,10 +1,13 @@
 <template>
   
-  <Header :accountId="accountId"
-          :signIn="signIn"
-          :signOut="signOut"/>
+  <Header 
+        :accountId="accountId"
+        :signIn="signIn"
+        :signOut="signOut"/>
 
-  <Memes/>
+  <Memes 
+        :memes="memes"
+        :contractId="CONTRACT_ID"/>
 
     <!-- Footer -->
     <footer class="relative bg-gradient-pink text-white section-shadow">
@@ -71,21 +74,16 @@
 
 <script>
 import Header from '@/components/Header.vue'
-// import Category from '@/components/Category.vue'
 import Memes from '@/components/Memes.vue'
-// import AddMemeForm from '@/components/AddMemeForm.vue'
 import { useMemes, useWallet } from "@/composables/near"
 export default {
     components: {
         Header,
         Memes
-        // Category,
-        // Meme,
-        // AddMemeForm
     },
     setup() {
       const { accountId, signIn,  signOut } = useWallet();
-      const { memes, addMeme, addComment, donate, vote } = useMemes();
+      const { memes, addMeme, addComment, donate, vote, CONTRACT_ID } = useMemes();
 
       return {
         accountId,
@@ -95,7 +93,8 @@ export default {
         addMeme,
         addComment,
         donate,
-        vote
+        vote,
+        CONTRACT_ID
       }
     }
 }

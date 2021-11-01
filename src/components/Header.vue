@@ -34,7 +34,7 @@
                         <!-- If logined -->
                         <div v-if="accountId">
                             <p class="text-gradient-blue text-sm md:text-base">{{accountId}}</p>
-                            <button @click="signOut" class="text-white font-bold">Log out</button>
+                            <button @click="signOut" class="text-white font-bold ml-3">Log out</button>
                         </div>
 
                         <!-- If don't logined -->

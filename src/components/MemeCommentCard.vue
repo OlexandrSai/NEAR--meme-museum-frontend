@@ -1,0 +1,790 @@
+<template>
+  
+    <!-- Comments / meme view -->
+    <section class="fixed overflow-y-auto w-full h-full bg-50 z-50 py-12">
+        <div class="flex justify-center">
+
+            <!-- Meme -->
+            <div class="relative w-meme pt-4 pb-12 bg-white rounded-3xl mt-16">
+
+                <!-- Decorative images -->
+                <img src="./img/image 1411 meme.png" alt="" class="absolute -top-12 right-16">
+                <img src="./img/image 198.png" alt="" class="absolute -bottom-4 -left-4">
+
+                <!-- Close button -->
+                <div class="flex justify-end">
+                    <a href="#" class="mx-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
+                            <path d="M24.9191 7.08331L16.9999 15.0025L9.08075 7.08331L7.08325 9.08081L15.0024 17L7.08325 24.9191L9.08075 26.9166L16.9999 18.9975L24.9191 26.9166L26.9166 24.9191L18.9974 17L26.9166 9.08081L24.9191 7.08331Z" fill="#2E3A59"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="px-8">
+
+                    <!-- Meme name - date -->
+                    <div class="flex items-center justify-between">
+                        <p class="text-gradient-pink text-xl md:text-3xl font-bold">Bart-Simpson</p>
+                        <p class="text-gray-400 text-xs md:text-sm">08 October 2021</p>
+                    </div>
+                    
+                    <!-- Owner -->
+                    <a href="#" class="text-gray-900 hover:underline text-sm md:text-base">oliinykkk.museum.testnet</a>
+
+                    <!-- Meme image -->
+                    <img src="./img/main.png" alt="" class="w-full mt-4 rounded-3xl">
+
+                    <!-- Donations - Category - Score -->
+                    <div class="flex justify-between mt-9">
+                        <div class="text-center">
+                            <p class="text-black text-xl font-bold">donations</p>
+                            <p class="text-gradient-pink font-bold text-2xl">1 near</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-black text-xl font-bold">category</p>
+                            <p class="text-gradient-pink font-bold text-2xl">2</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-black text-xl font-bold">score</p>
+                            <p class="text-gradient-pink font-bold text-2xl">4</p>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="flex space-x-1 lg:space-x-2 mt-11">
+                        <a href="#" class="mt-2 flex items-center justify-center w-1/2 border-2 border-white text-xs md:text-lg py-2 bg-gradient-to-r from-blue-500 hover:border-blue-600 to-blue-600 hover:text-blue-600 hover:from-white hover:to-white hover:shadow-xl text-white text-center font-bold rounded-md transform active:scale-95 duration-200">
+                            Donate 1 NEAR
+                        </a>
+                        <!-- Vote like -->
+                        <a href="#" class="flex items-center justify-center mt-2 py-3 text-blue-600 text-xs md:text-lg font-bold w-1/4 hover:bg-blue-600 hover:text-white rounded-md border-2 border-blue-600 transform active:scale-95 duration-200">
+                            <svg class="mr-0 lg:mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <path d="M2.19672 9.30004C2.19647 7.85037 2.7791 6.46149 3.81353 5.44586C4.84796 4.43024 6.2473 3.87319 7.69672 3.90004C9.41404 3.89092 11.0527 4.61921 12.1967 5.90004C13.3407 4.61921 14.9794 3.89092 16.6967 3.90004C18.1461 3.87319 19.5455 4.43024 20.5799 5.44586C21.6143 6.46149 22.197 7.85037 22.1967 9.30004C22.1967 14.656 15.8177 18.7 12.1967 21.9C8.58372 18.673 2.19672 14.66 2.19672 9.30004Z" fill="currentColor"/>
+                            </svg>
+                            Vote
+                        </a>
+
+                        <!-- Vote dislike -->
+                        <a href="#" class="flex items-center justify-center mt-2 py-3 text-red-500 text-xs md:text-lg font-bold w-1/4 hover:bg-red-500 hover:text-white rounded-md border-2 border-red-500 transform active:scale-95 duration-200">
+                            <svg class="mr-0 lg:mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <g clip-path="url(#clip0)">
+                                <path d="M12.4896 21.9452C11.8446 21.3732 11.1156 20.7782 10.3446 20.1452H10.3346C7.61959 17.9252 4.54259 15.4132 3.18359 12.4032C2.7371 11.4449 2.50049 10.4023 2.48957 9.34516C2.48659 7.89464 3.06836 6.50414 4.10339 5.48792C5.13843 4.4717 6.53937 3.91555 7.98959 3.94516C9.17021 3.94702 10.3254 4.28824 11.3176 4.92816C11.7536 5.21112 12.148 5.55341 12.4896 5.94516C12.8331 5.55495 13.2276 5.21286 13.6626 4.92816C14.6543 4.28811 15.8092 3.94687 16.9896 3.94516C18.4398 3.91555 19.8407 4.4717 20.8758 5.48792C21.9108 6.50414 22.4926 7.89464 22.4896 9.34516C22.4794 10.404 22.2428 11.4483 21.7956 12.4082C20.4366 15.4182 17.3606 17.9292 14.6456 20.1452L14.6356 20.1532C13.8636 20.7822 13.1356 21.3772 12.4906 21.9532L12.4896 21.9452ZM7.98959 5.94516C7.0581 5.9335 6.15966 6.29 5.48959 6.93716C4.84397 7.57132 4.48314 8.4402 4.4895 9.34516C4.50091 10.1157 4.67541 10.875 5.00159 11.5732C5.6431 12.8719 6.50869 14.0472 7.55859 15.0452C8.54959 16.0452 9.68958 17.0132 10.6756 17.8272C10.9486 18.0522 11.2266 18.2792 11.5046 18.5062L11.6796 18.6492C11.9466 18.8672 12.2226 19.0932 12.4896 19.3152L12.5026 19.3032L12.5086 19.2982H12.5146L12.5236 19.2912H12.5286H12.5336L12.5516 19.2762L12.5926 19.2432L12.5996 19.2372L12.6106 19.2292H12.6166L12.6256 19.2212L13.2896 18.6762L13.4636 18.5332C13.7446 18.3042 14.0226 18.0772 14.2956 17.8522C15.2816 17.0382 16.4226 16.0712 17.4136 15.0662C18.4636 14.0687 19.3292 12.8937 19.9706 11.5952C20.3027 10.891 20.4796 10.1237 20.4896 9.34516C20.4937 8.44299 20.1331 7.57745 19.4896 6.94516C18.8208 6.29507 17.9222 5.93564 16.9896 5.94516C15.8515 5.93548 14.7635 6.41252 13.9996 7.25616L12.4896 8.99616L10.9796 7.25616C10.2156 6.41252 9.12766 5.93548 7.98959 5.94516Z" fill="currentColor"/>
+                                <line x1="1.46788" y1="22.4232" x2="23.6918" y2="3.46749" stroke="currentColor" stroke-width="1.96094"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0">
+                                <rect x="0.489594" y="0.945312" width="24" height="24" rx="6" fill="currentColor"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+                            Vote
+                        </a>
+                    </div>
+
+                    <!-- Write comment -->
+                    <div class="mt-8">
+                        <p class="flex items-center text-xs md:text-xl font-bold pl-6">
+                            write comment
+                            <img src="./img/image 284.png" alt="" class="ml-2">
+                        </p>
+                        <div class="flex">
+                            <input type="text" name="" id="" placeholder="That's cool!" class="mt-5 py-5 pl-6 bg-gray-200 rounded-l-2xl w-full outline-none border-2 border-gray-200 hover:border-blue-200 focus:border-blue-600">
+                            <a href="#" class="flex items-center justify-center mt-5 w-40 bg-gray-200 hover:bg-blue-200 rounded-r-2xl text-blue-600  font-bold transform active:scale-95 duration-100">
+                                Send
+                                <img src="./img/image 1382.png" alt="" class="ml-1">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Comments -->
+                    <div class="">
+
+                        <div class="mt-5 px-6 py-5 rounded-3xl w-full bg-gradient-blue text-white">
+
+                            <!-- Owner -->
+                            <div class="flex justify-between items-center">
+                                <a href="#" class="text-sm md:text-xl">taras.near.testnet</a>
+                                <p class="text-xs md:text-sm">08 October 2021</p>
+                            </div>
+
+                            <!-- Comment text -->
+                            <p class="text-lg w-full md:w-3/4 mt-2">
+                                In my opinion this is awesome. I would 
+                                like to buy Simpson NFT
+                            </p>
+
+                        </div>
+                        <div class="mt-5 px-6 py-5 rounded-3xl w-full bg-gradient-pink text-white">
+
+                            <!-- Owner -->
+                            <div class="flex justify-between items-center">
+                                <a href="#" class="text-sm md:text-xl">taras.near.testnet</a>
+                                <p class="text-xs md:text-sm">08 October 2021</p>
+                            </div>
+
+                            <!-- Comment text -->
+                            <p class="text-lg w-full md:w-3/4 mt-2">
+                                In my opinion this is awesome. I would 
+                                like to buy Simpson NFT
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Header -->
+    <header class="relative header-bg">
+
+        <!-- Decorative emoji -->
+        <img src="./img/image 272.png" alt="explode" class="hidden md:block absolute top-0 right-0">
+        <img src="./img/image 1342.png" alt="trophy" class="hidden md:block absolute -bottom-12 left-0">
+        <img src="./img/image 1411.png" alt="trophy" class="hidden md:block absolute -bottom-12 right-0">
+
+        <!-- Decorative lights -->
+        <img src="./img/Ellipse 22.png" alt="lights" class="hidden md:block absolute left-0 top-16">
+        <img src="./img/Ellipse 24.png" alt="lights" class="hidden md:block absolute left-44 xl:left-96 top-0">
+        <img src="./img/Ellipse 21.png" alt="lights" class="hidden md:block absolute right-0 top-44">
+
+
+        <!-- Decorative line -->
+        <div class="w-full h-4 bg-gradient-pink"></div>
+
+        <div class="container mx-auto px-6">
+            <!-- Navbar -->
+            <nav class="mt-6 flex items-center justify-between py-3">
+                <a href="#" class="flex">
+                    <img src="./img/near_logo_stack_1.png" alt="" class="border-r-2 border-white">
+                    <div class="ml-2">
+                        <p class="text-gradient-blue text-2xl font-bold tracking-tight">Memes</p>
+                        <p class="-mt-2 font-josefin text-white text-2xl">museum</p>
+                    </div>
+                </a>
+                <div class="flex items-center space-x-3">
+                    <a href="#" class="flex items-center">
+                        <div class="flex items-center justify-center w-14 h-14 rounded-full bg-white">
+                            <img src="./img/near_logo_stack 2.png" alt="">
+                        </div>
+                        
+                        <!-- If don't logined -->
+                        <!-- <p class="ml-4 text-white text-sm md:text-xl font-bold">Log in with <span class="text-gradient-blue">NEAR Wallet</span></p> -->
+                        
+                        <!-- If logined -->
+                        <div class="">
+                            <p class="text-gradient-blue text-xs md:text-base">oliinykkk.museum.testnet</p>
+                            <a href="#" class="text-white font-bold">Log out</a>
+                        </div>
+    
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Offer -->
+            <div class="pt-14 pb-52">
+                <div class="mt-14 text-center">
+                    <h1 class="flex justify-center items-baseline space-x-2 text-4xl lg:text-8xl text-white font-bold">
+                        <img src="./img/image 1123.png" alt="pig" class="w-9 md:w-20 h-9 md:h-20 mr-3 -pb-4">
+                        Meme Museum 
+                        <span class="inline-block rounded-sm bg-gradient-blue w-2 md:w-5 h-2 md:h-5"></span>
+                    </h1>
+                    <p class="mt-4 text-white text-2xl tracking-wide">
+                        Share your favorite MEME. Comment, vote and <br class="hidden lg:block"> engage with all the cool memes
+                    </p>
+                </div>
+                <form action="" class="mt-14 w-full">
+
+
+                    <div class="flex flex-col lg:flex-row justify-center items-baseline lg:space-x-5">
+                        <div class="mt-4 lg:mt-0">
+                            <p class="text-gray-400 pl-4">Meme name</p>
+                            <input type="text" placeholder="Chack fight" class="w-64 lg:w-44 xl:w-64 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none pl-6">
+                        </div>
+                        
+                        <div class="mt-4 lg:mt-0">
+                            <p class="text-gray-400 pl-4">Title</p>
+                            <input type="text" placeholder="Chack fighting" class="w-64 lg:w-44 xl:w-64 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none pl-6">
+                        </div>
+                        <div class="mt-4 lg:mt-0">
+                            <p class="text-gray-400 pl-4">9GAG link</p>
+                            <input type="text" placeholder="9gag.com/gag/ayMDG8Y" class="w-64 lg:w-44 xl:w-64 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none pl-6">
+                        </div>
+                        <div class="mt-4 lg:mt-0">
+                            <p class="text-gray-400 pl-4 lg:pl-0">Category</p>
+                            <select name="" id="" class="w-16 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none px-3">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div class="mt-4 lg:mt-0">
+                            <p class="hidden lg:block text-transparent">buttons</p>
+                            <a href="#" class="inline-block mt-2 w-64 lg:w-44 xl:w-64 py-3 bg-gradient-to-r from-blue-500 hover:from-white active:from-gray-200 to-blue-600 hover:to-white active:to-gray-200 text-white hover:text-blue-600 text-center font-semibold rounded-md">Send</a>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+
+
+    </header>
+
+    <!-- Cards -->
+    <section class="relative">
+
+        <!-- Decorative img -->
+        <img src="./img/image 372.png" alt="" class="hidden md:block absolute left-0 bottom-96">
+        <img src="./img/image 278.png" alt="" class="hidden md:block absolute right-0 top-96">
+
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-24">
+                
+                <!-- Meme card -->
+                <div class="my-16">
+
+                    <!-- Meme image -->
+                    <a href="#" class="w-full ">
+                        <img src="./img/main.png" alt="" class="w-full transform hover:scale-105 duration-200 card-shadow rounded-md">
+                    </a>
+
+                    <!-- Meme name - data -->
+                    <div class="flex justify-between items-baseline mt-5">
+                        <p class="text-gradient-pink text-xl font-extrabold">Bart-Simpson</p>
+                        <p class="text-gray-400 font-semibold text-sm">07 Oct 2021</p>
+                    </div>
+
+                    <!-- Owner -->
+                    <a href="#" class="text-gray-900 text-xs hover:underline">oliinykkk.museum.testnet</a>
+
+                    <!-- Donations - Category - Score -->
+                    <div class="flex justify-between mt-4">
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">donations</p>
+                            <p class="text-gradient-pink font-bold">1 near</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">category</p>
+                            <p class="text-gradient-pink font-bold">2</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">score</p>
+                            <p class="text-gradient-pink font-bold">4</p>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+
+                    <!-- Donate -->
+                    <a href="#" class="inline-block mt-5 w-full py-3 bg-gradient-to-r border-2 border-white hover:border-blue-600 transform active:scale-95 from-blue-500 to-blue-600 hover:text-blue-600 hover:from-white hover:to-white hover:shadow-xl text-white text-center font-semibold rounded-md duration-200">
+                        Donate 1 NEAR
+                    </a>
+
+                    <!-- Votes -->
+                    <div class="flex space-x-2">
+
+                        <!-- Vote like -->
+                        <a href="#" class="flex items-center justify-center mt-2 py-2 text-blue-600 text-xl font-bold w-full hover:bg-blue-600 hover:text-white rounded-md border-2 border-blue-600 transform active:scale-95 duration-200">
+                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <path d="M2.19672 9.30004C2.19647 7.85037 2.7791 6.46149 3.81353 5.44586C4.84796 4.43024 6.2473 3.87319 7.69672 3.90004C9.41404 3.89092 11.0527 4.61921 12.1967 5.90004C13.3407 4.61921 14.9794 3.89092 16.6967 3.90004C18.1461 3.87319 19.5455 4.43024 20.5799 5.44586C21.6143 6.46149 22.197 7.85037 22.1967 9.30004C22.1967 14.656 15.8177 18.7 12.1967 21.9C8.58372 18.673 2.19672 14.66 2.19672 9.30004Z" fill="currentColor"/>
+                            </svg>
+                            Vote
+                        </a>
+
+                        <!-- Vote dislike -->
+                        <a href="#" class="flex items-center justify-center mt-2 py-2 text-red-500 text-xl font-bold w-full hover:bg-red-500 hover:text-white rounded-md border-2 border-red-500 transform active:scale-95 duration-200">
+                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <g clip-path="url(#clip0)">
+                                <path d="M12.4896 21.9452C11.8446 21.3732 11.1156 20.7782 10.3446 20.1452H10.3346C7.61959 17.9252 4.54259 15.4132 3.18359 12.4032C2.7371 11.4449 2.50049 10.4023 2.48957 9.34516C2.48659 7.89464 3.06836 6.50414 4.10339 5.48792C5.13843 4.4717 6.53937 3.91555 7.98959 3.94516C9.17021 3.94702 10.3254 4.28824 11.3176 4.92816C11.7536 5.21112 12.148 5.55341 12.4896 5.94516C12.8331 5.55495 13.2276 5.21286 13.6626 4.92816C14.6543 4.28811 15.8092 3.94687 16.9896 3.94516C18.4398 3.91555 19.8407 4.4717 20.8758 5.48792C21.9108 6.50414 22.4926 7.89464 22.4896 9.34516C22.4794 10.404 22.2428 11.4483 21.7956 12.4082C20.4366 15.4182 17.3606 17.9292 14.6456 20.1452L14.6356 20.1532C13.8636 20.7822 13.1356 21.3772 12.4906 21.9532L12.4896 21.9452ZM7.98959 5.94516C7.0581 5.9335 6.15966 6.29 5.48959 6.93716C4.84397 7.57132 4.48314 8.4402 4.4895 9.34516C4.50091 10.1157 4.67541 10.875 5.00159 11.5732C5.6431 12.8719 6.50869 14.0472 7.55859 15.0452C8.54959 16.0452 9.68958 17.0132 10.6756 17.8272C10.9486 18.0522 11.2266 18.2792 11.5046 18.5062L11.6796 18.6492C11.9466 18.8672 12.2226 19.0932 12.4896 19.3152L12.5026 19.3032L12.5086 19.2982H12.5146L12.5236 19.2912H12.5286H12.5336L12.5516 19.2762L12.5926 19.2432L12.5996 19.2372L12.6106 19.2292H12.6166L12.6256 19.2212L13.2896 18.6762L13.4636 18.5332C13.7446 18.3042 14.0226 18.0772 14.2956 17.8522C15.2816 17.0382 16.4226 16.0712 17.4136 15.0662C18.4636 14.0687 19.3292 12.8937 19.9706 11.5952C20.3027 10.891 20.4796 10.1237 20.4896 9.34516C20.4937 8.44299 20.1331 7.57745 19.4896 6.94516C18.8208 6.29507 17.9222 5.93564 16.9896 5.94516C15.8515 5.93548 14.7635 6.41252 13.9996 7.25616L12.4896 8.99616L10.9796 7.25616C10.2156 6.41252 9.12766 5.93548 7.98959 5.94516Z" fill="currentColor"/>
+                                <line x1="1.46788" y1="22.4232" x2="23.6918" y2="3.46749" stroke="currentColor" stroke-width="1.96094"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0">
+                                <rect x="0.489594" y="0.945312" width="24" height="24" rx="6" fill="currentColor"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+                            Vote
+                        </a>
+
+                    </div>
+
+                    <!-- Comments -->
+                     <div class="mt-2 btn-border-pink w-full h-12 p-0.5">
+                        <a href="#" class="btn-bg-pink">
+                            <p class="btn-text-pink font-bold ">Comment / read comments</p>
+                        </a>
+                    </div>
+
+                </div>
+                <!-- Meme card -->
+                <div class="my-16">
+
+                    <!-- Meme image -->
+                    <a href="#" class="w-full ">
+                        <img src="./img/main.png" alt="" class="w-full transform hover:scale-105 duration-200 card-shadow rounded-md">
+                    </a>
+
+                    <!-- Meme name - data -->
+                    <div class="flex justify-between items-baseline mt-5">
+                        <p class="text-gradient-pink text-xl font-extrabold">Bart-Simpson</p>
+                        <p class="text-gray-400 font-semibold text-sm">07 Oct 2021</p>
+                    </div>
+
+                    <!-- Owner -->
+                    <a href="#" class="text-gray-900 text-xs hover:underline">oliinykkk.museum.testnet</a>
+
+                    <!-- Donations - Category - Score -->
+                    <div class="flex justify-between mt-4">
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">donations</p>
+                            <p class="text-gradient-pink font-bold">1 near</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">category</p>
+                            <p class="text-gradient-pink font-bold">2</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">score</p>
+                            <p class="text-gradient-pink font-bold">4</p>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+
+                    <!-- Donate -->
+                    <a href="#" class="inline-block mt-5 w-full py-3 bg-gradient-to-r border-2 border-white hover:border-blue-600 transform active:scale-95 from-blue-500 to-blue-600 hover:text-blue-600 hover:from-white hover:to-white hover:shadow-xl text-white text-center font-semibold rounded-md duration-200">
+                        Donate 1 NEAR
+                    </a>
+
+                    <!-- Votes -->
+                    <div class="flex space-x-2">
+
+                        <!-- Vote like -->
+                        <a href="#" class="flex items-center justify-center mt-2 py-2 text-blue-600 text-xl font-bold w-full hover:bg-blue-600 hover:text-white rounded-md border-2 border-blue-600 transform active:scale-95 duration-200">
+                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <path d="M2.19672 9.30004C2.19647 7.85037 2.7791 6.46149 3.81353 5.44586C4.84796 4.43024 6.2473 3.87319 7.69672 3.90004C9.41404 3.89092 11.0527 4.61921 12.1967 5.90004C13.3407 4.61921 14.9794 3.89092 16.6967 3.90004C18.1461 3.87319 19.5455 4.43024 20.5799 5.44586C21.6143 6.46149 22.197 7.85037 22.1967 9.30004C22.1967 14.656 15.8177 18.7 12.1967 21.9C8.58372 18.673 2.19672 14.66 2.19672 9.30004Z" fill="currentColor"/>
+                            </svg>
+                            Vote
+                        </a>
+
+                        <!-- Vote dislike -->
+                        <a href="#" class="flex items-center justify-center mt-2 py-2 text-red-500 text-xl font-bold w-full hover:bg-red-500 hover:text-white rounded-md border-2 border-red-500 transform active:scale-95 duration-200">
+                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <g clip-path="url(#clip0)">
+                                <path d="M12.4896 21.9452C11.8446 21.3732 11.1156 20.7782 10.3446 20.1452H10.3346C7.61959 17.9252 4.54259 15.4132 3.18359 12.4032C2.7371 11.4449 2.50049 10.4023 2.48957 9.34516C2.48659 7.89464 3.06836 6.50414 4.10339 5.48792C5.13843 4.4717 6.53937 3.91555 7.98959 3.94516C9.17021 3.94702 10.3254 4.28824 11.3176 4.92816C11.7536 5.21112 12.148 5.55341 12.4896 5.94516C12.8331 5.55495 13.2276 5.21286 13.6626 4.92816C14.6543 4.28811 15.8092 3.94687 16.9896 3.94516C18.4398 3.91555 19.8407 4.4717 20.8758 5.48792C21.9108 6.50414 22.4926 7.89464 22.4896 9.34516C22.4794 10.404 22.2428 11.4483 21.7956 12.4082C20.4366 15.4182 17.3606 17.9292 14.6456 20.1452L14.6356 20.1532C13.8636 20.7822 13.1356 21.3772 12.4906 21.9532L12.4896 21.9452ZM7.98959 5.94516C7.0581 5.9335 6.15966 6.29 5.48959 6.93716C4.84397 7.57132 4.48314 8.4402 4.4895 9.34516C4.50091 10.1157 4.67541 10.875 5.00159 11.5732C5.6431 12.8719 6.50869 14.0472 7.55859 15.0452C8.54959 16.0452 9.68958 17.0132 10.6756 17.8272C10.9486 18.0522 11.2266 18.2792 11.5046 18.5062L11.6796 18.6492C11.9466 18.8672 12.2226 19.0932 12.4896 19.3152L12.5026 19.3032L12.5086 19.2982H12.5146L12.5236 19.2912H12.5286H12.5336L12.5516 19.2762L12.5926 19.2432L12.5996 19.2372L12.6106 19.2292H12.6166L12.6256 19.2212L13.2896 18.6762L13.4636 18.5332C13.7446 18.3042 14.0226 18.0772 14.2956 17.8522C15.2816 17.0382 16.4226 16.0712 17.4136 15.0662C18.4636 14.0687 19.3292 12.8937 19.9706 11.5952C20.3027 10.891 20.4796 10.1237 20.4896 9.34516C20.4937 8.44299 20.1331 7.57745 19.4896 6.94516C18.8208 6.29507 17.9222 5.93564 16.9896 5.94516C15.8515 5.93548 14.7635 6.41252 13.9996 7.25616L12.4896 8.99616L10.9796 7.25616C10.2156 6.41252 9.12766 5.93548 7.98959 5.94516Z" fill="currentColor"/>
+                                <line x1="1.46788" y1="22.4232" x2="23.6918" y2="3.46749" stroke="currentColor" stroke-width="1.96094"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0">
+                                <rect x="0.489594" y="0.945312" width="24" height="24" rx="6" fill="currentColor"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+                            Vote
+                        </a>
+
+                    </div>
+
+                    <!-- Comments -->
+                     <div class="mt-2 btn-border-pink w-full h-12 p-0.5">
+                        <a href="#" class="btn-bg-pink">
+                            <p class="btn-text-pink font-bold ">Comment / read comments</p>
+                        </a>
+                    </div>
+
+                </div>
+                <!-- Meme card -->
+                <div class="my-16">
+
+                    <!-- Meme image -->
+                    <a href="#" class="w-full ">
+                        <img src="./img/main.png" alt="" class="w-full transform hover:scale-105 duration-200 card-shadow rounded-md">
+                    </a>
+
+                    <!-- Meme name - data -->
+                    <div class="flex justify-between items-baseline mt-5">
+                        <p class="text-gradient-pink text-xl font-extrabold">Bart-Simpson</p>
+                        <p class="text-gray-400 font-semibold text-sm">07 Oct 2021</p>
+                    </div>
+
+                    <!-- Owner -->
+                    <a href="#" class="text-gray-900 text-xs hover:underline">oliinykkk.museum.testnet</a>
+
+                    <!-- Donations - Category - Score -->
+                    <div class="flex justify-between mt-4">
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">donations</p>
+                            <p class="text-gradient-pink font-bold">1 near</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">category</p>
+                            <p class="text-gradient-pink font-bold">2</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">score</p>
+                            <p class="text-gradient-pink font-bold">4</p>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+
+                    <!-- Donate -->
+                    <a href="#" class="inline-block mt-5 w-full py-3 bg-gradient-to-r border-2 border-white hover:border-blue-600 transform active:scale-95 from-blue-500 to-blue-600 hover:text-blue-600 hover:from-white hover:to-white hover:shadow-xl text-white text-center font-semibold rounded-md duration-200">
+                        Donate 1 NEAR
+                    </a>
+
+                    <!-- Votes -->
+                    <div class="flex space-x-2">
+
+                        <!-- Vote like -->
+                        <a href="#" class="flex items-center justify-center mt-2 py-2 text-blue-600 text-xl font-bold w-full hover:bg-blue-600 hover:text-white rounded-md border-2 border-blue-600 transform active:scale-95 duration-200">
+                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <path d="M2.19672 9.30004C2.19647 7.85037 2.7791 6.46149 3.81353 5.44586C4.84796 4.43024 6.2473 3.87319 7.69672 3.90004C9.41404 3.89092 11.0527 4.61921 12.1967 5.90004C13.3407 4.61921 14.9794 3.89092 16.6967 3.90004C18.1461 3.87319 19.5455 4.43024 20.5799 5.44586C21.6143 6.46149 22.197 7.85037 22.1967 9.30004C22.1967 14.656 15.8177 18.7 12.1967 21.9C8.58372 18.673 2.19672 14.66 2.19672 9.30004Z" fill="currentColor"/>
+                            </svg>
+                            Vote
+                        </a>
+
+                        <!-- Vote dislike -->
+                        <a href="#" class="flex items-center justify-center mt-2 py-2 text-red-500 text-xl font-bold w-full hover:bg-red-500 hover:text-white rounded-md border-2 border-red-500 transform active:scale-95 duration-200">
+                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <g clip-path="url(#clip0)">
+                                <path d="M12.4896 21.9452C11.8446 21.3732 11.1156 20.7782 10.3446 20.1452H10.3346C7.61959 17.9252 4.54259 15.4132 3.18359 12.4032C2.7371 11.4449 2.50049 10.4023 2.48957 9.34516C2.48659 7.89464 3.06836 6.50414 4.10339 5.48792C5.13843 4.4717 6.53937 3.91555 7.98959 3.94516C9.17021 3.94702 10.3254 4.28824 11.3176 4.92816C11.7536 5.21112 12.148 5.55341 12.4896 5.94516C12.8331 5.55495 13.2276 5.21286 13.6626 4.92816C14.6543 4.28811 15.8092 3.94687 16.9896 3.94516C18.4398 3.91555 19.8407 4.4717 20.8758 5.48792C21.9108 6.50414 22.4926 7.89464 22.4896 9.34516C22.4794 10.404 22.2428 11.4483 21.7956 12.4082C20.4366 15.4182 17.3606 17.9292 14.6456 20.1452L14.6356 20.1532C13.8636 20.7822 13.1356 21.3772 12.4906 21.9532L12.4896 21.9452ZM7.98959 5.94516C7.0581 5.9335 6.15966 6.29 5.48959 6.93716C4.84397 7.57132 4.48314 8.4402 4.4895 9.34516C4.50091 10.1157 4.67541 10.875 5.00159 11.5732C5.6431 12.8719 6.50869 14.0472 7.55859 15.0452C8.54959 16.0452 9.68958 17.0132 10.6756 17.8272C10.9486 18.0522 11.2266 18.2792 11.5046 18.5062L11.6796 18.6492C11.9466 18.8672 12.2226 19.0932 12.4896 19.3152L12.5026 19.3032L12.5086 19.2982H12.5146L12.5236 19.2912H12.5286H12.5336L12.5516 19.2762L12.5926 19.2432L12.5996 19.2372L12.6106 19.2292H12.6166L12.6256 19.2212L13.2896 18.6762L13.4636 18.5332C13.7446 18.3042 14.0226 18.0772 14.2956 17.8522C15.2816 17.0382 16.4226 16.0712 17.4136 15.0662C18.4636 14.0687 19.3292 12.8937 19.9706 11.5952C20.3027 10.891 20.4796 10.1237 20.4896 9.34516C20.4937 8.44299 20.1331 7.57745 19.4896 6.94516C18.8208 6.29507 17.9222 5.93564 16.9896 5.94516C15.8515 5.93548 14.7635 6.41252 13.9996 7.25616L12.4896 8.99616L10.9796 7.25616C10.2156 6.41252 9.12766 5.93548 7.98959 5.94516Z" fill="currentColor"/>
+                                <line x1="1.46788" y1="22.4232" x2="23.6918" y2="3.46749" stroke="currentColor" stroke-width="1.96094"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0">
+                                <rect x="0.489594" y="0.945312" width="24" height="24" rx="6" fill="currentColor"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+                            Vote
+                        </a>
+
+                    </div>
+
+                    <!-- Comments -->
+                     <div class="mt-2 btn-border-pink w-full h-12 p-0.5">
+                        <a href="#" class="btn-bg-pink">
+                            <p class="btn-text-pink font-bold ">Comment / read comments</p>
+                        </a>
+                    </div>
+
+                </div>
+                <!-- Meme card -->
+                <div class="my-16">
+
+                    <!-- Meme image -->
+                    <a href="#" class="w-full ">
+                        <img src="./img/main.png" alt="" class="w-full transform hover:scale-105 duration-200 card-shadow rounded-md">
+                    </a>
+
+                    <!-- Meme name - data -->
+                    <div class="flex justify-between items-baseline mt-5">
+                        <p class="text-gradient-pink text-xl font-extrabold">Bart-Simpson</p>
+                        <p class="text-gray-400 font-semibold text-sm">07 Oct 2021</p>
+                    </div>
+
+                    <!-- Owner -->
+                    <a href="#" class="text-gray-900 text-xs hover:underline">oliinykkk.museum.testnet</a>
+
+                    <!-- Donations - Category - Score -->
+                    <div class="flex justify-between mt-4">
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">donations</p>
+                            <p class="text-gradient-pink font-bold">1 near</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">category</p>
+                            <p class="text-gradient-pink font-bold">2</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">score</p>
+                            <p class="text-gradient-pink font-bold">4</p>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+
+                    <!-- Donate -->
+                    <a href="#" class="inline-block mt-5 w-full py-3 bg-gradient-to-r border-2 border-white hover:border-blue-600 transform active:scale-95 from-blue-500 to-blue-600 hover:text-blue-600 hover:from-white hover:to-white hover:shadow-xl text-white text-center font-semibold rounded-md duration-200">
+                        Donate 1 NEAR
+                    </a>
+
+                    <!-- Votes -->
+                    <div class="flex space-x-2">
+
+                        <!-- Vote like -->
+                        <a href="#" class="flex items-center justify-center mt-2 py-2 text-blue-600 text-xl font-bold w-full hover:bg-blue-600 hover:text-white rounded-md border-2 border-blue-600 transform active:scale-95 duration-200">
+                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <path d="M2.19672 9.30004C2.19647 7.85037 2.7791 6.46149 3.81353 5.44586C4.84796 4.43024 6.2473 3.87319 7.69672 3.90004C9.41404 3.89092 11.0527 4.61921 12.1967 5.90004C13.3407 4.61921 14.9794 3.89092 16.6967 3.90004C18.1461 3.87319 19.5455 4.43024 20.5799 5.44586C21.6143 6.46149 22.197 7.85037 22.1967 9.30004C22.1967 14.656 15.8177 18.7 12.1967 21.9C8.58372 18.673 2.19672 14.66 2.19672 9.30004Z" fill="currentColor"/>
+                            </svg>
+                            Vote
+                        </a>
+
+                        <!-- Vote dislike -->
+                        <a href="#" class="flex items-center justify-center mt-2 py-2 text-red-500 text-xl font-bold w-full hover:bg-red-500 hover:text-white rounded-md border-2 border-red-500 transform active:scale-95 duration-200">
+                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <g clip-path="url(#clip0)">
+                                <path d="M12.4896 21.9452C11.8446 21.3732 11.1156 20.7782 10.3446 20.1452H10.3346C7.61959 17.9252 4.54259 15.4132 3.18359 12.4032C2.7371 11.4449 2.50049 10.4023 2.48957 9.34516C2.48659 7.89464 3.06836 6.50414 4.10339 5.48792C5.13843 4.4717 6.53937 3.91555 7.98959 3.94516C9.17021 3.94702 10.3254 4.28824 11.3176 4.92816C11.7536 5.21112 12.148 5.55341 12.4896 5.94516C12.8331 5.55495 13.2276 5.21286 13.6626 4.92816C14.6543 4.28811 15.8092 3.94687 16.9896 3.94516C18.4398 3.91555 19.8407 4.4717 20.8758 5.48792C21.9108 6.50414 22.4926 7.89464 22.4896 9.34516C22.4794 10.404 22.2428 11.4483 21.7956 12.4082C20.4366 15.4182 17.3606 17.9292 14.6456 20.1452L14.6356 20.1532C13.8636 20.7822 13.1356 21.3772 12.4906 21.9532L12.4896 21.9452ZM7.98959 5.94516C7.0581 5.9335 6.15966 6.29 5.48959 6.93716C4.84397 7.57132 4.48314 8.4402 4.4895 9.34516C4.50091 10.1157 4.67541 10.875 5.00159 11.5732C5.6431 12.8719 6.50869 14.0472 7.55859 15.0452C8.54959 16.0452 9.68958 17.0132 10.6756 17.8272C10.9486 18.0522 11.2266 18.2792 11.5046 18.5062L11.6796 18.6492C11.9466 18.8672 12.2226 19.0932 12.4896 19.3152L12.5026 19.3032L12.5086 19.2982H12.5146L12.5236 19.2912H12.5286H12.5336L12.5516 19.2762L12.5926 19.2432L12.5996 19.2372L12.6106 19.2292H12.6166L12.6256 19.2212L13.2896 18.6762L13.4636 18.5332C13.7446 18.3042 14.0226 18.0772 14.2956 17.8522C15.2816 17.0382 16.4226 16.0712 17.4136 15.0662C18.4636 14.0687 19.3292 12.8937 19.9706 11.5952C20.3027 10.891 20.4796 10.1237 20.4896 9.34516C20.4937 8.44299 20.1331 7.57745 19.4896 6.94516C18.8208 6.29507 17.9222 5.93564 16.9896 5.94516C15.8515 5.93548 14.7635 6.41252 13.9996 7.25616L12.4896 8.99616L10.9796 7.25616C10.2156 6.41252 9.12766 5.93548 7.98959 5.94516Z" fill="currentColor"/>
+                                <line x1="1.46788" y1="22.4232" x2="23.6918" y2="3.46749" stroke="currentColor" stroke-width="1.96094"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0">
+                                <rect x="0.489594" y="0.945312" width="24" height="24" rx="6" fill="currentColor"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+                            Vote
+                        </a>
+
+                    </div>
+
+                    <!-- Comments -->
+                     <div class="mt-2 btn-border-pink w-full h-12 p-0.5">
+                        <a href="#" class="btn-bg-pink">
+                            <p class="btn-text-pink font-bold ">Comment / read comments</p>
+                        </a>
+                    </div>
+
+                </div>
+                <!-- Meme card -->
+                <div class="my-16">
+
+                    <!-- Meme image -->
+                    <a href="#" class="w-full ">
+                        <img src="./img/main.png" alt="" class="w-full transform hover:scale-105 duration-200 card-shadow rounded-md">
+                    </a>
+
+                    <!-- Meme name - data -->
+                    <div class="flex justify-between items-baseline mt-5">
+                        <p class="text-gradient-pink text-xl font-extrabold">Bart-Simpson</p>
+                        <p class="text-gray-400 font-semibold text-sm">07 Oct 2021</p>
+                    </div>
+
+                    <!-- Owner -->
+                    <a href="#" class="text-gray-900 text-xs hover:underline">oliinykkk.museum.testnet</a>
+
+                    <!-- Donations - Category - Score -->
+                    <div class="flex justify-between mt-4">
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">donations</p>
+                            <p class="text-gradient-pink font-bold">1 near</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">category</p>
+                            <p class="text-gradient-pink font-bold">2</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">score</p>
+                            <p class="text-gradient-pink font-bold">4</p>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+
+                    <!-- Donate -->
+                    <a href="#" class="inline-block mt-5 w-full py-3 bg-gradient-to-r border-2 border-white hover:border-blue-600 transform active:scale-95 from-blue-500 to-blue-600 hover:text-blue-600 hover:from-white hover:to-white hover:shadow-xl text-white text-center font-semibold rounded-md duration-200">
+                        Donate 1 NEAR
+                    </a>
+
+                    <!-- Votes -->
+                    <div class="flex space-x-2">
+
+                        <!-- Vote like -->
+                        <a href="#" class="flex items-center justify-center mt-2 py-2 text-blue-600 text-xl font-bold w-full hover:bg-blue-600 hover:text-white rounded-md border-2 border-blue-600 transform active:scale-95 duration-200">
+                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <path d="M2.19672 9.30004C2.19647 7.85037 2.7791 6.46149 3.81353 5.44586C4.84796 4.43024 6.2473 3.87319 7.69672 3.90004C9.41404 3.89092 11.0527 4.61921 12.1967 5.90004C13.3407 4.61921 14.9794 3.89092 16.6967 3.90004C18.1461 3.87319 19.5455 4.43024 20.5799 5.44586C21.6143 6.46149 22.197 7.85037 22.1967 9.30004C22.1967 14.656 15.8177 18.7 12.1967 21.9C8.58372 18.673 2.19672 14.66 2.19672 9.30004Z" fill="currentColor"/>
+                            </svg>
+                            Vote
+                        </a>
+
+                        <!-- Vote dislike -->
+                        <a href="#" class="flex items-center justify-center mt-2 py-2 text-red-500 text-xl font-bold w-full hover:bg-red-500 hover:text-white rounded-md border-2 border-red-500 transform active:scale-95 duration-200">
+                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <g clip-path="url(#clip0)">
+                                <path d="M12.4896 21.9452C11.8446 21.3732 11.1156 20.7782 10.3446 20.1452H10.3346C7.61959 17.9252 4.54259 15.4132 3.18359 12.4032C2.7371 11.4449 2.50049 10.4023 2.48957 9.34516C2.48659 7.89464 3.06836 6.50414 4.10339 5.48792C5.13843 4.4717 6.53937 3.91555 7.98959 3.94516C9.17021 3.94702 10.3254 4.28824 11.3176 4.92816C11.7536 5.21112 12.148 5.55341 12.4896 5.94516C12.8331 5.55495 13.2276 5.21286 13.6626 4.92816C14.6543 4.28811 15.8092 3.94687 16.9896 3.94516C18.4398 3.91555 19.8407 4.4717 20.8758 5.48792C21.9108 6.50414 22.4926 7.89464 22.4896 9.34516C22.4794 10.404 22.2428 11.4483 21.7956 12.4082C20.4366 15.4182 17.3606 17.9292 14.6456 20.1452L14.6356 20.1532C13.8636 20.7822 13.1356 21.3772 12.4906 21.9532L12.4896 21.9452ZM7.98959 5.94516C7.0581 5.9335 6.15966 6.29 5.48959 6.93716C4.84397 7.57132 4.48314 8.4402 4.4895 9.34516C4.50091 10.1157 4.67541 10.875 5.00159 11.5732C5.6431 12.8719 6.50869 14.0472 7.55859 15.0452C8.54959 16.0452 9.68958 17.0132 10.6756 17.8272C10.9486 18.0522 11.2266 18.2792 11.5046 18.5062L11.6796 18.6492C11.9466 18.8672 12.2226 19.0932 12.4896 19.3152L12.5026 19.3032L12.5086 19.2982H12.5146L12.5236 19.2912H12.5286H12.5336L12.5516 19.2762L12.5926 19.2432L12.5996 19.2372L12.6106 19.2292H12.6166L12.6256 19.2212L13.2896 18.6762L13.4636 18.5332C13.7446 18.3042 14.0226 18.0772 14.2956 17.8522C15.2816 17.0382 16.4226 16.0712 17.4136 15.0662C18.4636 14.0687 19.3292 12.8937 19.9706 11.5952C20.3027 10.891 20.4796 10.1237 20.4896 9.34516C20.4937 8.44299 20.1331 7.57745 19.4896 6.94516C18.8208 6.29507 17.9222 5.93564 16.9896 5.94516C15.8515 5.93548 14.7635 6.41252 13.9996 7.25616L12.4896 8.99616L10.9796 7.25616C10.2156 6.41252 9.12766 5.93548 7.98959 5.94516Z" fill="currentColor"/>
+                                <line x1="1.46788" y1="22.4232" x2="23.6918" y2="3.46749" stroke="currentColor" stroke-width="1.96094"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0">
+                                <rect x="0.489594" y="0.945312" width="24" height="24" rx="6" fill="currentColor"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+                            Vote
+                        </a>
+
+                    </div>
+
+                    <!-- Comments -->
+                     <div class="mt-2 btn-border-pink w-full h-12 p-0.5">
+                        <a href="#" class="btn-bg-pink">
+                            <p class="btn-text-pink font-bold ">Comment / read comments</p>
+                        </a>
+                    </div>
+
+                </div>
+                <!-- Meme card -->
+                <div class="my-16">
+
+                    <!-- Meme image -->
+                    <a href="#" class="w-full ">
+                        <img src="./img/main.png" alt="" class="w-full transform hover:scale-105 duration-200 card-shadow rounded-md">
+                    </a>
+
+                    <!-- Meme name - data -->
+                    <div class="flex justify-between items-baseline mt-5">
+                        <p class="text-gradient-pink text-xl font-extrabold">Bart-Simpson</p>
+                        <p class="text-gray-400 font-semibold text-sm">07 Oct 2021</p>
+                    </div>
+
+                    <!-- Owner -->
+                    <a href="#" class="text-gray-900 text-xs hover:underline">oliinykkk.museum.testnet</a>
+
+                    <!-- Donations - Category - Score -->
+                    <div class="flex justify-between mt-4">
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">donations</p>
+                            <p class="text-gradient-pink font-bold">1 near</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">category</p>
+                            <p class="text-gradient-pink font-bold">2</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-black text-sm font-bold">score</p>
+                            <p class="text-gradient-pink font-bold">4</p>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+
+                    <!-- Donate -->
+                    <a href="#" class="inline-block mt-5 w-full py-3 bg-gradient-to-r border-2 border-white hover:border-blue-600 transform active:scale-95 from-blue-500 to-blue-600 hover:text-blue-600 hover:from-white hover:to-white hover:shadow-xl text-white text-center font-semibold rounded-md duration-200">
+                        Donate 1 NEAR
+                    </a>
+
+                    <!-- Votes -->
+                    <div class="flex space-x-2">
+
+                        <!-- Vote like -->
+                        <a href="#" class="flex items-center justify-center mt-2 py-2 text-blue-600 text-xl font-bold w-full hover:bg-blue-600 hover:text-white rounded-md border-2 border-blue-600 transform active:scale-95 duration-200">
+                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <path d="M2.19672 9.30004C2.19647 7.85037 2.7791 6.46149 3.81353 5.44586C4.84796 4.43024 6.2473 3.87319 7.69672 3.90004C9.41404 3.89092 11.0527 4.61921 12.1967 5.90004C13.3407 4.61921 14.9794 3.89092 16.6967 3.90004C18.1461 3.87319 19.5455 4.43024 20.5799 5.44586C21.6143 6.46149 22.197 7.85037 22.1967 9.30004C22.1967 14.656 15.8177 18.7 12.1967 21.9C8.58372 18.673 2.19672 14.66 2.19672 9.30004Z" fill="currentColor"/>
+                            </svg>
+                            Vote
+                        </a>
+
+                        <!-- Vote dislike -->
+                        <a href="#" class="flex items-center justify-center mt-2 py-2 text-red-500 text-xl font-bold w-full hover:bg-red-500 hover:text-white rounded-md border-2 border-red-500 transform active:scale-95 duration-200">
+                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <g clip-path="url(#clip0)">
+                                <path d="M12.4896 21.9452C11.8446 21.3732 11.1156 20.7782 10.3446 20.1452H10.3346C7.61959 17.9252 4.54259 15.4132 3.18359 12.4032C2.7371 11.4449 2.50049 10.4023 2.48957 9.34516C2.48659 7.89464 3.06836 6.50414 4.10339 5.48792C5.13843 4.4717 6.53937 3.91555 7.98959 3.94516C9.17021 3.94702 10.3254 4.28824 11.3176 4.92816C11.7536 5.21112 12.148 5.55341 12.4896 5.94516C12.8331 5.55495 13.2276 5.21286 13.6626 4.92816C14.6543 4.28811 15.8092 3.94687 16.9896 3.94516C18.4398 3.91555 19.8407 4.4717 20.8758 5.48792C21.9108 6.50414 22.4926 7.89464 22.4896 9.34516C22.4794 10.404 22.2428 11.4483 21.7956 12.4082C20.4366 15.4182 17.3606 17.9292 14.6456 20.1452L14.6356 20.1532C13.8636 20.7822 13.1356 21.3772 12.4906 21.9532L12.4896 21.9452ZM7.98959 5.94516C7.0581 5.9335 6.15966 6.29 5.48959 6.93716C4.84397 7.57132 4.48314 8.4402 4.4895 9.34516C4.50091 10.1157 4.67541 10.875 5.00159 11.5732C5.6431 12.8719 6.50869 14.0472 7.55859 15.0452C8.54959 16.0452 9.68958 17.0132 10.6756 17.8272C10.9486 18.0522 11.2266 18.2792 11.5046 18.5062L11.6796 18.6492C11.9466 18.8672 12.2226 19.0932 12.4896 19.3152L12.5026 19.3032L12.5086 19.2982H12.5146L12.5236 19.2912H12.5286H12.5336L12.5516 19.2762L12.5926 19.2432L12.5996 19.2372L12.6106 19.2292H12.6166L12.6256 19.2212L13.2896 18.6762L13.4636 18.5332C13.7446 18.3042 14.0226 18.0772 14.2956 17.8522C15.2816 17.0382 16.4226 16.0712 17.4136 15.0662C18.4636 14.0687 19.3292 12.8937 19.9706 11.5952C20.3027 10.891 20.4796 10.1237 20.4896 9.34516C20.4937 8.44299 20.1331 7.57745 19.4896 6.94516C18.8208 6.29507 17.9222 5.93564 16.9896 5.94516C15.8515 5.93548 14.7635 6.41252 13.9996 7.25616L12.4896 8.99616L10.9796 7.25616C10.2156 6.41252 9.12766 5.93548 7.98959 5.94516Z" fill="currentColor"/>
+                                <line x1="1.46788" y1="22.4232" x2="23.6918" y2="3.46749" stroke="currentColor" stroke-width="1.96094"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0">
+                                <rect x="0.489594" y="0.945312" width="24" height="24" rx="6" fill="currentColor"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+                            Vote
+                        </a>
+
+                    </div>
+
+                    <!-- Comments -->
+                     <div class="mt-2 btn-border-pink w-full h-12 p-0.5">
+                        <a href="#" class="btn-bg-pink">
+                            <p class="btn-text-pink font-bold ">Comment / read comments</p>
+                        </a>
+                    </div>
+
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative bg-gradient-pink text-white section-shadow">
+
+        <!-- Decorative img -->
+        <img src="./img/image 187.png" alt="" class="hidden md:block absolute -top-14 right-0">
+        <img src="./img/image 228.png" alt="" class="hidden md:block absolute bottom-0 left-0">
+
+        <div class="container mx-auto px-6 py-10">
+            <div class="grid grid-cols-1 lg:grid-cols-5">
+
+                <!-- Logo -->
+                <div class="">
+                    <a href="#" class="flex">
+                        <img src="./img/near_logo_stack_1.png" alt="" class="border-r-2 border-white">
+                        <div class="ml-2">
+                            <p class=" text-2xl font-bold tracking-tight">Memes</p>
+                            <p class="-mt-2 font-josefin text-white text-2xl">museum</p>
+                        </div>
+                    </a>
+                    <a href="#" class="mt-6 inline-block text-lg hover:text-blue-400">info@nearanalytics</a>
+                    <br>
+                    <a href="#" class="mt-3 inline-block text-lg hover:text-blue-400">1-232-3434 (Main)</a>
+                </div>
+
+                <!-- About -->
+                <div class="">
+                    <h5 class="text-2xl font-bold mt-2">About</h5>
+                    <ul class="mt-4 space-y-2 text-gray-200">
+                        <li><a href="" class="hover:text-white">About contract</a></li>
+                        <li><a href="" class="hover:text-white">About NEAR </a></li>
+                        <li><a href="" class="hover:text-white">About NEAR ecosystem</a></li>
+                    </ul>
+                </div>
+
+                <!-- Community -->
+                <div class="">
+                    <h5 class="text-2xl font-bold mt-2">Community</h5>
+                    <ul class="mt-4 space-y-2 text-gray-200">
+                        <li><a href="" class="hover:text-white">Community OS Wiki</a></li>
+                        <li><a href="" class="hover:text-white">Forum</a></li>
+                        <li><a href="" class="hover:text-white">Events</a></li>
+                    </ul>
+                </div>
+
+                <!-- Help -->
+                <div class="">
+                    <h5 class="text-2xl font-bold mt-2">Help</h5>
+                    <ul class="mt-4 space-y-2 text-gray-200">
+                        <li><a href="" class="hover:text-white">Support</a></li>
+                        <li><a href="" class="hover:text-white">info@nearanalytics</a></li>
+                        <li><a href="" class="hover:text-white">1-232-3434 (Main)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer button -->
+                <div class="flex justify-center items-center">
+                    <a href="#" class="bg-white hover:bg-gray-200 text-blue-500 hover:text-blue-400 mt-12 py-3 rounded-md lg:mt-0 text-2xl font-bold border-md w-full text-center transform active:scale-95 duration-200">Jump to up</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
