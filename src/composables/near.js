@@ -76,17 +76,19 @@ export const useWallet = () => {
       accountId.value = wallet.getAccountId()
     } catch (e) {
       err.value = e;
-      console.log(err.value);
+      console.error(err.value);
     }
   });
 
   const handleSignIn = () => {
-    wallet.requestSignIn(CONTRACT_ID)
+    wallet.requestSignIn({
+      contractId: CONTRACT_ID,
+      methodNames: [] // add methods names to restrict access
+    })
   };
 
   const handleSignOut = () => {
     wallet.signOut();
-    localStorage.removeItem(`near-api-js:keystore:${accountId.value}:testnet`);
     accountId.value = wallet.getAccountId()
   };
 
