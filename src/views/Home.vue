@@ -1,13 +1,16 @@
 <template>
   
-  <Header 
+    <Header 
         :accountId="accountId"
         :signIn="signIn"
         :signOut="signOut"/>
 
-  <Memes 
+    <Memes 
         :memes="memes"
-        :contractId="CONTRACT_ID"/>
+        :contractId="CONTRACT_ID"
+        :addComment="addComment"
+        :donate="donate"
+        :vote="vote"/>
 
     <!-- Footer -->
     <footer class="relative bg-gradient-pink text-white section-shadow">
