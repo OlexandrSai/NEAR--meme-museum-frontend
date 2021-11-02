@@ -6,7 +6,7 @@
 
 <a href="https://github.com/Learn-NEAR/NCD.L1.sample--meme-museum">Smart contract source code</a>
 
-<a href="https://github.com/NazarH2ONyzhnyk/meme-museum-new">Raw html</a>
+<a href="https://github.com/NazarH2ONyzhnyk/meme-museum-new">Raw html + TailwindCss</a>
 
 
 ## Project setup
