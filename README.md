@@ -1,4 +1,8 @@
 # Meme museum
+This repo contains example of frontend for NEAR Certified Developer Level II students
+
+⚠️ Warning
+Any content produced by NEAR, or developer resources that NEAR provides, are for educational and inspiration purposes only. NEAR does not encourage, induce or sanction the deployment of any such applications in violation of applicable laws or regulations.
 
 <a href="">Video demo walkthrough</a>
 
