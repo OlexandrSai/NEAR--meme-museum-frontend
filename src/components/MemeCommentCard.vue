@@ -110,44 +110,50 @@
                             <img src="@/assets/img/image284.png" alt="" class="ml-2">
                         </p>
                         <div class="flex">
-                            <input type="text" name="" id="" placeholder="That's cool!" class="mt-5 py-5 pl-6 bg-gray-200 rounded-l-2xl w-full outline-none border-2 border-gray-200 hover:border-blue-200 focus:border-blue-600">
-                            <a href="#" class="flex items-center justify-center mt-5 w-40 bg-gray-200 hover:bg-blue-200 rounded-r-2xl text-blue-600  font-bold transform active:scale-95 duration-100">
+                            <form>
+                                <input  
+                                    v-model="comment"
+                                    type="comment"
+                                    name="comment"
+                                    id="comment"
+                                    placeholder="Write a comment ..."
+                                    class="mt-5 py-5 pl-6 bg-gray-200 rounded-l-2xl w-full outline-none border-2 border-gray-200 hover:border-blue-200 focus:border-blue-600"/>
+                            </form>
+                            <button @click="handleSubmit" class="flex items-center justify-center mt-5 w-40 bg-gray-200 hover:bg-blue-200 rounded-r-2xl text-blue-600  font-bold transform active:scale-95 duration-100">
                                 Send
                                 <img src="@/assets/img/image1382.png" alt="" class="ml-1">
-                            </a>
+                            </button>
                         </div>
                     </div>
 
                     <!-- Comments -->
                     <div class="">
 
-                        <div class="mt-5 px-6 py-5 rounded-3xl w-full bg-gradient-blue text-white">
+                        <div    
+                            v-for="comment in meme.comments"
+                            :key="comment"
+                            class="mt-5 px-6 py-5 rounded-3xl w-full bg-gradient-pink text-white">
 
                             <!-- Owner -->
                             <div class="flex justify-between items-center">
-                                <a href="#" class="text-sm md:text-xl">taras.near.testnet</a>
-                                <p class="text-xs md:text-sm">08 October 2021</p>
+                                <a href="#" class="text-sm md:text-xl">{{ comment.author }}</a>
+                                <p class="text-xs md:text-sm">
+                                   {{
+                                       format(
+                                           new Date(
+                                               fromUnixTime(
+                                                   parseInt(comment.created_at.substring(0, 10))
+                                               )
+                                           ),
+                                           "MMM do yyyy"
+                                       )
+                                   }}
+                                </p>
                             </div>
 
                             <!-- Comment text -->
                             <p class="text-lg w-full md:w-3/4 mt-2">
-                                In my opinion this is awesome. I would 
-                                like to buy Simpson NFT
-                            </p>
-
-                        </div>
-                        <div class="mt-5 px-6 py-5 rounded-3xl w-full bg-gradient-pink text-white">
-
-                            <!-- Owner -->
-                            <div class="flex justify-between items-center">
-                                <a href="#" class="text-sm md:text-xl">taras.near.testnet</a>
-                                <p class="text-xs md:text-sm">08 October 2021</p>
-                            </div>
-
-                            <!-- Comment text -->
-                            <p class="text-lg w-full md:w-3/4 mt-2">
-                                In my opinion this is awesome. I would 
-                                like to buy Simpson NFT
+                                {{ comment.text }}
                             </p>
 
                         </div>
@@ -168,6 +174,7 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 import { format, fromUnixTime } from "date-fns";
 import { Dialog, DialogOverlay, TransitionChild, TransitionRoot } from '@headlessui/vue'
 export default {
@@ -203,8 +210,22 @@ export default {
             required: true
         }
     },
-    setup() {
-        return { format, fromUnixTime }
+    setup(props) {
+        const comment = ref("");
+
+        const handleSubmit = () => {
+            props.addComment({
+                memeId: props.meme.id,
+                text: comment.value
+            })
+        }
+
+        return { 
+            format, 
+            fromUnixTime,
+            comment,
+            handleSubmit
+            }
     }
 }
 </script>
