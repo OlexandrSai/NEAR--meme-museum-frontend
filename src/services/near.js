@@ -1,17 +1,14 @@
 import { keyStores, Near, WalletConnection, utils } from "near-api-js";
 import BN from "bn.js";
 
-//move to  env
-export const CONTRACT_ID = "dev-1631287157094-93706410058436";
+export const CONTRACT_ID = process.env.VUE_APP_CONTRACT_ID;
+const gas = new BN( process.env.VUE_APP_gas );
 
-const gas = new BN("70000000000000");
-
-//move to  env
 export const near = new Near({
-  networkId: "testnet",
+  networkId: process.env.VUE_APP_networkId,
   keyStore: new keyStores.BrowserLocalStorageKeyStore(),
-  nodeUrl: "https://rpc.testnet.near.org",
-  walletUrl: "https://wallet.testnet.near.org",
+  nodeUrl: process.env.VUE_APP_nodeUrl,
+  walletUrl: process.env.VUE_APP_walletUrl,
 });
 
 export const wallet = new WalletConnection(near, "meme-museum");
