@@ -1,6 +1,6 @@
 # Meme museum
 
-<a>Video demo walkthrough</a>
+<a href="">Video demo walkthrough</a>
 
 ## Project setup
 ```
