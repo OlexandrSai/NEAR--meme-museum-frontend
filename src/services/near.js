@@ -40,6 +40,7 @@ export const getMemeComments = (meme) => {
 
 // function  to add  meme
 export const addMeme = ({ meme, title, data, category }) => {
+  category = parseInt(category)
   return wallet.account().functionCall({
     contractId: CONTRACT_ID,
     methodName: "add_meme",

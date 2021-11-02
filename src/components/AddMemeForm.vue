@@ -30,11 +30,11 @@
                                 id="category"
                                 class="w-16 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none px-3"
                             >
-                                <option value=0>0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
+                                <option value="0">0</option>
+                                <option value=1>1</option>
+                                <option value=2>2</option>
+                                <option value=3>3</option>
+                                <option value=4>4</option>
                             </Field>
                         </div>
                         <div class="mt-4 lg:mt-0">
