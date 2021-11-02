@@ -97,13 +97,21 @@
 
                     <!-- Comments -->
                      <div class="mt-2 btn-border-pink w-full h-12 p-0.5">
-                        <a href="#" class="btn-bg-pink">
+                        <button @click="openModal(meme)" class="btn-bg-pink">
                             <p class="btn-text-pink font-bold ">Comment / read comments</p>
-                        </a>
+                        </button>
                     </div>
 
                 </div>
-                
+
+                <MemeCommentCard    :meme="currentMeme" 
+                                    :modalOpen="modalOpen"
+                                    :contractId="contractId"
+                                    @closeModal="closeModal"
+                                    :addComment="addComment"
+                                    :donate="donate"
+                                    :vote="vote"/>
+
             </div>
         </div>
     </section>
@@ -111,8 +119,13 @@
 </template>
 
 <script>
+import MemeCommentCard from '@/components/MemeCommentCard.vue'
+import { ref } from 'vue'
 import { format, fromUnixTime } from "date-fns";
 export default {
+    components: {
+        MemeCommentCard
+    },
     props: {
         memes: {
             type: Array,
@@ -135,8 +148,23 @@ export default {
             required: true
         }
     },
-    setup() {
-        return { format, fromUnixTime };
-    },
+    setup(props) {
+        const modalOpen = ref(false)
+        const currentMeme = ref(props.memes[0])
+        return { 
+            format,
+            fromUnixTime, 
+            modalOpen,
+            currentMeme,
+            openModal: (meme) => {
+                console.log(meme)
+                currentMeme.value = meme
+                modalOpen.value = true
+            },
+            closeModal: () => {
+                modalOpen.value = false
+            } 
+            };
+    }
 }
 </script>
