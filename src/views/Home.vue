@@ -8,6 +8,8 @@
         :memes="memes"/>
 
     <Memes 
+        :accountId="accountId"
+        :signIn="signIn"
         :memes="memes"
         :contractId="CONTRACT_ID"
         :addComment="addComment"
