@@ -1,4 +1,6 @@
-# meme-museum-frontend
+# Meme museum
+
+<a href="">Video demo walkthrough</a>
 
 ## Project setup
 ```
