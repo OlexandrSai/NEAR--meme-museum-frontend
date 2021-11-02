@@ -3,7 +3,9 @@
     <Header 
         :accountId="accountId"
         :signIn="signIn"
-        :signOut="signOut"/>
+        :signOut="signOut"
+        :addMeme="addMeme"
+        :memes="memes"/>
 
     <Memes 
         :memes="memes"

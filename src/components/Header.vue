@@ -55,51 +55,32 @@
                         Share your favorite MEME. Comment, vote and <br class="hidden lg:block"> engage with all the cool memes
                     </p>
                 </div>
-                <form action="" class="mt-14 w-full">
+                
+                <AddMemeForm 
+                    :addMeme="addMeme"
+                    :memes="memes"/>
 
-
-                    <div class="flex flex-col lg:flex-row justify-center items-baseline lg:space-x-5">
-                        <div class="mt-4 lg:mt-0">
-                            <p class="text-gray-400 pl-4">Meme name</p>
-                            <input type="text" placeholder="Chack fight" class="w-64 lg:w-44 xl:w-64 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none pl-6">
-                        </div>
-                        
-                        <div class="mt-4 lg:mt-0">
-                            <p class="text-gray-400 pl-4">Title</p>
-                            <input type="text" placeholder="Chack fighting" class="w-64 lg:w-44 xl:w-64 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none pl-6">
-                        </div>
-                        <div class="mt-4 lg:mt-0">
-                            <p class="text-gray-400 pl-4">9GAG link</p>
-                            <input type="text" placeholder="9gag.com/gag/ayMDG8Y" class="w-64 lg:w-44 xl:w-64 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none pl-6">
-                        </div>
-                        <div class="mt-4 lg:mt-0">
-                            <p class="text-gray-400 pl-4 lg:pl-0">Category</p>
-                            <select name="" id="" class="w-16 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none px-3">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </div>
-                        <div class="mt-4 lg:mt-0">
-                            <p class="hidden lg:block text-transparent">buttons</p>
-                            <a href="#" class="inline-block mt-2 w-64 lg:w-44 xl:w-64 py-3 bg-gradient-to-r from-blue-500 hover:from-white active:from-gray-200 to-blue-600 hover:to-white active:to-gray-200 text-white hover:text-blue-600 text-center font-semibold rounded-md">Send</a>
-                        </div>
-                    </div>
-
-
-                </form>
             </div>
         </div>
-
 
     </header>
 </template>
 
 <script>
+import AddMemeForm from "@/components/AddMemeForm.vue"
 export default {
+    components: {
+        AddMemeForm
+    },
     props: {
+        addMeme: {
+            type: Function,
+            required: true
+        },
+        memes: {
+            type: Array,
+            required: true
+        },
         accountId: {
             typeof:String,
             required:true
