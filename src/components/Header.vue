@@ -56,7 +56,7 @@
                     </p>
                 </div>
                 
-                <AddMemeForm 
+                <AddMemeForm v-if="accountId"
                     :addMeme="addMeme"
                     :memes="memes"/>
 

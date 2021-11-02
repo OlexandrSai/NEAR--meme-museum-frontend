@@ -16,7 +16,7 @@
                     class="my-16">
 
                     <!-- Meme image -->
-                    <a class="w-full ">
+                    <a class="w-full h-70">
                         <img 
                             :src="meme.image" 
                             :alt="meme.info.title" 
