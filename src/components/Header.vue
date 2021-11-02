@@ -1,6 +1,6 @@
 <template>
 <!-- Header -->
-    <header class="relative header-bg">
+    <header id="header" class="relative header-bg">
 
         <!-- Decorative emoji -->
         <img src="@/assets/img/image272.png" alt="explode" class="hidden md:block absolute top-0 right-0">
@@ -19,7 +19,7 @@
         <div class="container mx-auto px-6">
             <!-- Navbar -->
             <nav class="mt-6 flex items-center justify-between py-3">
-                <a href="#" class="flex">
+                <a href="https://github.com/Learn-NEAR/NCD.L1.sample--meme-museum" target="_blank" class="flex">
                     <img src="@/assets/img/near_logo_stack_1.png" alt="" class="border-r-2 border-white">
                     <div class="ml-2">
                         <p class="text-gradient-blue text-2xl font-bold tracking-tight">Memes</p>

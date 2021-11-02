@@ -104,7 +104,7 @@
 
                 </div>
 
-                <MemeCommentCard    :meme="currentMeme" 
+                <MemeCard    :meme="currentMeme" 
                                     :modalOpen="modalOpen"
                                     :contractId="contractId"
                                     @closeModal="closeModal"
@@ -119,12 +119,12 @@
 </template>
 
 <script>
-import MemeCommentCard from '@/components/MemeCommentCard.vue'
+import MemeCard from '@/components/MemeCard.vue'
 import { ref } from 'vue'
 import { format, fromUnixTime } from "date-fns";
 export default {
     components: {
-        MemeCommentCard
+        MemeCard
     },
     props: {
         memes: {
