@@ -11,10 +11,13 @@ import {
   vote,
 } from "../services/near";
 
+
+
 export const useMemes = () => {
   const memes = ref([]);
   const err = ref(null);
 
+  //initialize memes  list
   onMounted(async () => {
     try {
       const memeIds = await getMemes();
