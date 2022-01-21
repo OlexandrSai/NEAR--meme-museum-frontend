@@ -33,9 +33,12 @@
                 <div class="px-8">
 
                     <!-- Meme name - date -->
-                    <div class="flex items-center justify-between">
-                        <p class="text-gradient-pink text-xl md:text-3xl font-bold">{{ meme.info.title }}</p>
-                        <p class="text-gray-400 text-xs md:text-sm">
+                    <div class="flex items-start justify-between space-x-2">
+                        <div class="flex flex-col items-start">
+                            <p class="text-gradient-pink text-xl md:text-3xl font-bold text-left">{{ meme.info.title }}</p>
+                            <a class="text-gray-900 hover:underline text-sm md:text-base text-left cursor-pointer">{{ meme.id }}.{{ contractId }}.testnet</a>
+                        </div>
+                        <p class="text-gray-400 text-xs md:text-sm mt-2">
                             {{
                                 format(
                                     new Date(
@@ -49,8 +52,6 @@
                             </p>
                     </div>
                     
-                    <!-- Owner -->
-                    <a class="text-gray-900 hover:underline text-sm md:text-base">{{ meme.id }}.{{ contractId }}.testnet</a>
 
                     <!-- Meme image -->
                     <img    :src="meme.image" 
@@ -110,7 +111,7 @@
                             <img src="@/assets/img/image284.png" alt="" class="ml-2">
                         </p>
                         <div class="flex">
-                            <form>
+                            <form class="w-full">
                                 <input  
                                     v-model="comment"
                                     type="comment"
@@ -152,7 +153,7 @@
                             </div>
 
                             <!-- Comment text -->
-                            <p class="text-lg w-full md:w-3/4 mt-2">
+                            <p class="text-lg text-left w-full md:w-3/4 mt-2">
                                 {{ comment.text }}
                             </p>
 
