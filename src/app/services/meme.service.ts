@@ -1,11 +1,13 @@
 import {Injectable} from '@angular/core';
 import {NearService} from "./near.service";
 import {utils} from "near-api-js";
+import * as BN from "bn.js";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MemeService {
+  public err: any;
 
   constructor(public nearService: NearService) {
   }
@@ -38,12 +40,14 @@ export class MemeService {
   // function  to add  meme
   addMeme = ({meme, title, data, category}: {meme: any, title: any, data: any, category: any}) => {
     category = parseInt(category)
+    const attachedDeposit: any = utils.format.parseNearAmount("3") ?? undefined;
+    const attachedDepositBN = new BN(attachedDeposit) ;
     return this.nearService.wallet.account().functionCall({
       contractId: this.nearService.CONTRACT_ID,
       methodName: "add_meme",
       gas: this.nearService.gas,
       args: {meme, title, data, category},
-      attachedDeposit: utils.format.parseNearAmount("3"),
+      attachedDeposit: attachedDepositBN,
     });
   };
 
@@ -60,10 +64,12 @@ export class MemeService {
   //function to donate
   donate = ({memeId, amount}: { memeId: any, amount: any }) => {
     const memeContractId = `${memeId}.${this.nearService.CONTRACT_ID}`;
+    const attachedDeposit: any = utils.format.parseNearAmount(amount) ?? undefined;
+    const attachedDepositBN = new BN(attachedDeposit) ;
     return this.nearService.wallet.account().functionCall({
       contractId: memeContractId,
       methodName: "donate",
-      attachedDeposit: utils.format.parseNearAmount(amount),
+      attachedDeposit: attachedDepositBN,
       args: {}
     });
   };
