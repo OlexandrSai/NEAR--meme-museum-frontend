@@ -1,40 +1,27 @@
-# Meme museum
-This repo contains example of frontend for NEAR Certified Developer Level II students
+# NEARMemeMuseumFrontend
 
-## ⚠️ Warning
-Any content produced by NEAR, or developer resources that NEAR provides, are for educational and inspiration purposes only. NEAR does not encourage, induce or sanction the deployment of any such applications in violation of applicable laws or regulations.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
 
+## Development server
 
-<a href="https://www.loom.com/share/3b558ef14d4945338d4220964f075220" target="_blank">Video demo UI walkthrough</a>
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-<a href="https://www.loom.com/share/c38c6ac8c1d04afca0b4402f997374d2"  target="_blank">Video code walkthrough</a>
+## Code scaffolding
 
-![image](https://user-images.githubusercontent.com/38455192/139825787-9089159c-086e-4f28-b3be-cbf95cc8fa84.png)
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-<a href="https://github.com/Learn-NEAR/NCD.L1.sample--meme-museum"  target="_blank">Smart contract source code</a>
+## Build
 
-<a href="https://github.com/NazarH2ONyzhnyk/meme-museum-new"  target="_blank">Raw html + TailwindCss</a>
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Running unit tests
 
-## Project setup
-```
-npm install
-```
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Running end-to-end tests
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Further help
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
