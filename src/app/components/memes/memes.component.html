@@ -1,5 +1,4 @@
 <section class="relative">
-
   <!-- Decorative img -->
   <img src="/assets/img/image372.png" alt="" class="hidden md:block absolute left-0 bottom-96">
   <img src="/assets/img/image278.png" alt="" class="hidden md:block absolute right-0 top-96">
@@ -147,7 +146,14 @@
 
 
       </div>
-      <app-meme-card></app-meme-card>
+      <app-meme-card *ngIf="modalOpen"
+                     [meme]="currentMeme"
+                     [(open)]="modalOpen"
+                     [donate]="memeService.donate"
+                     [vote]="memeService.vote"
+                     [addComment]="memeService.addComment"
+                     [contractId]="memeService.nearService.CONTRACT_ID"
+      ></app-meme-card>
 <!--      <MemeCard    :meme="currentMeme"-->
 <!--                   :modalOpen="modalOpen"-->
 <!--                   :contractId="contractId"-->

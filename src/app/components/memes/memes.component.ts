@@ -29,17 +29,13 @@ export class MemesComponent implements OnInit {
   }
 
   loadMemes = async () => {
-    console.log('da')
     try {
       let memesIds = await this.memeService.getMemes();
-      console.log(memesIds)
-      console.log("memesIds")
 
       this.memes = await (
         await Promise.all(
           memesIds.map(async (id: any) => {
             const info = await this.memeService.getMeme(id);
-            console.log(info);
             const comments = await this.memeService.getMemeComments(id);
 
             return {
@@ -57,6 +53,5 @@ export class MemesComponent implements OnInit {
       this.memeService.err = e;
       console.log(e);
     }
-    console.log('eto ya')
   }
 }

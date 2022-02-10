@@ -7,6 +7,7 @@ import { AddMemeFormComponent } from './components/add-meme-form/add-meme-form.c
 import { MemesComponent } from './components/memes/memes.component';
 import { MemeCardComponent } from './components/meme-card/meme-card.component';
 import { FooterComponent } from './components/footer/footer.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterComponent } from './components/footer/footer.component';
     FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
