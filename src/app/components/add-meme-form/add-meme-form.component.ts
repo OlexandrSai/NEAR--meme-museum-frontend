@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {MemeService} from "../../services/meme.service";
 
 @Component({
@@ -6,7 +6,7 @@ import {MemeService} from "../../services/meme.service";
   templateUrl: './add-meme-form.component.html',
   styleUrls: ['./add-meme-form.component.css']
 })
-export class AddMemeFormComponent implements OnInit {
+export class AddMemeFormComponent {
   public category = 0;
   public formFields = [
     {
@@ -25,12 +25,11 @@ export class AddMemeFormComponent implements OnInit {
       value: ''
     },
   ];
-  constructor(public memeService: MemeService) { }
 
-  ngOnInit(): void {
+  constructor(public memeService: MemeService) {
   }
 
-  submit() {
+  async submit() {
     const values = this.formFields.map(e => e.value);
     const payload = {
       meme: values[0],
@@ -39,6 +38,6 @@ export class AddMemeFormComponent implements OnInit {
       category: this.category
     }
 
-    this.memeService.addMeme(payload);
+    await this.memeService.addMeme(payload);
   }
 }

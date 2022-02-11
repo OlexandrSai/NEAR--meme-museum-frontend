@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {NearService} from "./near.service";
 import {utils} from "near-api-js";
+import {format, fromUnixTime} from "date-fns";
 import * as BN from "bn.js";
 
 @Injectable({
@@ -44,7 +45,7 @@ export class MemeService {
           })
         )
       ).reverse();
-    }catch (e: any) {
+    } catch (e: any) {
       this.err = e;
       console.log(e);
     }
@@ -67,10 +68,10 @@ export class MemeService {
   // --------------------------------------------------------------------------
 
   // function  to add  meme
-  addMeme({meme, title, data, category}: {meme: any, title: any, data: any, category: any}) {
+  addMeme({meme, title, data, category}: { meme: any, title: any, data: any, category: any }) {
     category = parseInt(category)
     const attachedDeposit: any = utils.format.parseNearAmount("3") ?? undefined;
-    const attachedDepositBN = new BN(attachedDeposit) ;
+    const attachedDepositBN = new BN(attachedDeposit);
     return this.nearService.wallet.account().functionCall({
       contractId: this.nearService.CONTRACT_ID,
       methodName: "add_meme",
@@ -81,7 +82,7 @@ export class MemeService {
   };
 
   // function  to  add comment
-  addComment ({memeId, text}: {memeId: any, text: any}) {
+  addComment({memeId, text}: { memeId: any, text: any }) {
     const memeContractId = `${memeId}.${this.nearService.CONTRACT_ID}`;
     return this.nearService.wallet.account().functionCall({
       contractId: memeContractId,
@@ -94,7 +95,7 @@ export class MemeService {
   donate({memeId, amount}: { memeId: any, amount: any }) {
     const memeContractId = `${memeId}.${this.nearService.CONTRACT_ID}`;
     const attachedDeposit: any = utils.format.parseNearAmount(amount) ?? undefined;
-    const attachedDepositBN = new BN(attachedDeposit) ;
+    const attachedDepositBN = new BN(attachedDeposit);
     return this.nearService.wallet.account().functionCall({
       contractId: memeContractId,
       methodName: "donate",
@@ -104,7 +105,7 @@ export class MemeService {
   };
 
   //function to vote for the meme
-  vote ({memeId, value}: {memeId: any, value: any}) {
+  vote({memeId, value}: { memeId: any, value: any }) {
     const memeContractId = `${memeId}.${this.nearService.CONTRACT_ID}`;
 
     return this.nearService.wallet.account().functionCall({
@@ -117,5 +118,10 @@ export class MemeService {
   async updateContract(contractId: any) {
     this.nearService.setContract(contractId);
     await this.updateMemes();
+  }
+
+  formatDate(data: any) {
+    let date = data.info ? data.info.created_at : data.created_at
+    return format(new Date(fromUnixTime(parseInt(date.substring(0, 10)))), "MMMM do yyyy")
   }
 }

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {NearService} from "../../services/near.service";
+import {Component} from '@angular/core';
 import {MemeService} from "../../services/meme.service";
 
 @Component({
@@ -7,12 +6,11 @@ import {MemeService} from "../../services/meme.service";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   public popupShow = false;
   public contractId = '';
-  constructor(public memeService: MemeService) { }
 
-  ngOnInit(): void {
+  constructor(public memeService: MemeService) {
   }
 
   async setContract() {
