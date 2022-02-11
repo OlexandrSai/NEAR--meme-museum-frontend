@@ -35,4 +35,12 @@ export class NearService {
     this.wallet.signOut()
     this.accountId = ''
   };
+
+  setContract = (contract: any) => {
+    this.CONTRACT_ID = contract;
+  }
+
+  restoreDefaultContract = () => {
+    this.CONTRACT_ID = environment.NG_APP_CONTRACT_ID
+  }
 }

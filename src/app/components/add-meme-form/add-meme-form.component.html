@@ -1,6 +1,4 @@
 <form class="mt-14 w-full relative" (ngSubmit)="submit()">
-<!--  :validation-schema="schema"-->
-<!--  @submit="handleSubmit"-->
   <div class="flex flex-col lg:flex-row justify-center items-baseline lg:space-x-5">
 
     <div
@@ -9,15 +7,6 @@
     >
       <p class="text-gray-400 pl-4">{{ field.label }}</p>
       <input [placeholder]="field.label"  [(ngModel)]="field.value" [name]="field.id" class="w-64 lg:w-44 xl:w-64 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none pl-6">
-
-<!--      <Field-->
-<!--        :v-model="field.id"-->
-<!--        type="text"-->
-<!--        :name="field.id"-->
-<!--        :id="field.id"-->
-<!--        :placeholder="field.label"-->
-<!--        class="w-64 lg:w-44 xl:w-64 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none pl-6"/>-->
-<!--      <ErrorMessage :name="field.id" class="w-64 text-red-500" />-->
     </div>
 
     <div class="mt-4 lg:mt-0">

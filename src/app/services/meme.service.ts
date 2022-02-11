@@ -8,6 +8,7 @@ import * as BN from "bn.js";
 })
 export class MemeService {
   public err: any;
+  public memes: any[] = [];
 
   constructor(public nearService: NearService) {
   }
@@ -17,18 +18,46 @@ export class MemeService {
   // --------------------------------------------------------------------------
 
   // function  to get memes
-  getMemes = () => {
+  getMemes() {
     return this.nearService.wallet.account().viewFunction(this.nearService.CONTRACT_ID, "get_meme_list", {});
   };
 
+  async updateMemes() {
+    this.err = null;
+    try {
+      let memesIds = await this.getMemes();
+
+      this.memes = await (
+        await Promise.all(
+          memesIds.map(async (id: any) => {
+            const info = await this.getMeme(id);
+            const comments = await this.getMemeComments(id);
+
+            return {
+              id,
+              info,
+              comments,
+              image: `https://img-9gag-fun.9cache.com/photo/${
+                info.data.split("https://9gag.com/gag/")[1]
+              }_460s.jpg`,
+            };
+          })
+        )
+      ).reverse();
+    }catch (e: any) {
+      this.err = e;
+      console.log(e);
+    }
+  }
+
   // function  to get  info about meme
-  getMeme = (meme: any) => {
+  getMeme(meme: any) {
     const memeContractId = meme + "." + this.nearService.CONTRACT_ID;
     return this.nearService.wallet.account().viewFunction(memeContractId, "get_meme", {});
   };
 
   // function to get  meme`s  comment
-  getMemeComments = (meme: any) => {
+  getMemeComments(meme: any) {
     const memeContractId = meme + "." + this.nearService.CONTRACT_ID;
     return this.nearService.wallet.account().viewFunction(memeContractId, "get_recent_comments", {});
   };
@@ -38,7 +67,7 @@ export class MemeService {
   // --------------------------------------------------------------------------
 
   // function  to add  meme
-  addMeme = ({meme, title, data, category}: {meme: any, title: any, data: any, category: any}) => {
+  addMeme({meme, title, data, category}: {meme: any, title: any, data: any, category: any}) {
     category = parseInt(category)
     const attachedDeposit: any = utils.format.parseNearAmount("3") ?? undefined;
     const attachedDepositBN = new BN(attachedDeposit) ;
@@ -52,7 +81,7 @@ export class MemeService {
   };
 
   // function  to  add comment
-  addComment = ({memeId, text}: {memeId: any, text: any}) => {
+  addComment ({memeId, text}: {memeId: any, text: any}) {
     const memeContractId = `${memeId}.${this.nearService.CONTRACT_ID}`;
     return this.nearService.wallet.account().functionCall({
       contractId: memeContractId,
@@ -62,7 +91,7 @@ export class MemeService {
   };
 
   //function to donate
-  donate = ({memeId, amount}: { memeId: any, amount: any }) => {
+  donate({memeId, amount}: { memeId: any, amount: any }) {
     const memeContractId = `${memeId}.${this.nearService.CONTRACT_ID}`;
     const attachedDeposit: any = utils.format.parseNearAmount(amount) ?? undefined;
     const attachedDepositBN = new BN(attachedDeposit) ;
@@ -75,7 +104,7 @@ export class MemeService {
   };
 
   //function to vote for the meme
-  vote = ({memeId, value}: {memeId: any, value: any}) => {
+  vote ({memeId, value}: {memeId: any, value: any}) {
     const memeContractId = `${memeId}.${this.nearService.CONTRACT_ID}`;
 
     return this.nearService.wallet.account().functionCall({
@@ -84,4 +113,9 @@ export class MemeService {
       args: {value},
     });
   };
+
+  async updateContract(contractId: any) {
+    this.nearService.setContract(contractId);
+    await this.updateMemes();
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NearService} from "../../services/near.service";
+import {MemeService} from "../../services/meme.service";
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,13 @@ import {NearService} from "../../services/near.service";
 })
 export class HeaderComponent implements OnInit {
   public popupShow = false;
-  constructor(public nearService: NearService) { }
+  public contractId = '';
+  constructor(public memeService: MemeService) { }
 
   ngOnInit(): void {
   }
 
+  async setContract() {
+    await this.memeService.updateContract(this.contractId);
+  }
 }

@@ -1,14 +1,9 @@
-<!--<TransitionRoot as="template" :show="modalOpen">-->
 <div *ngIf="open">
   <div class="fixed z-1000 inset-0 overflow-y-auto"  (close)="closeModal()">
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-<!--      <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in duration-200" leave-from="opacity-100" leave-to="opacity-0">-->
-<!--        <DialogOverlay class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />-->
-<!--      </TransitionChild>-->
 
       <!-- This element is to trick the browser into centering the modal contents. -->
       <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-<!--      <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in duration-200" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">-->
 
         <div class="fixed top-0  w-full h-screen bg-50 z-50">
           <section class="fixed overflow-y-auto w-full h-full bg-50 z-50 py-12">
@@ -127,7 +122,6 @@
 
                   <!-- Comments -->
                   <div class="">
-
                     <div
                       *ngFor="let comment of meme.comments"
                       class="mt-5 px-6 py-5 rounded-3xl w-full bg-gradient-pink text-white">
@@ -153,18 +147,13 @@
                       <p class="text-lg w-full md:w-3/4 mt-2">
                         {{ comment.text }}
                       </p>
-
                     </div>
-
                   </div>
-
                 </div>
               </div>
-
             </div>
           </section>
         </div>
-
     </div>
   </div>
 </div>
