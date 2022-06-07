@@ -41,7 +41,7 @@ To deploy sample--meme-museum to your account visit <a href="https://github.com/
 After you successfully deployed museum and meme contracts and you have contract ids, you can input them on a deployed <a href="sample-thanks.onrender.com/" target="_blank">website </a> or you can clone the repo and put contract ids inside ``` src/environments/environment.ts ``` file :
 
 ```
-CONTRACT_ID = "put your thanks contract id here"
+CONTRACT_ID = "put your museum contract id here"
 ...
 ```
 
