@@ -23,7 +23,7 @@
         <div class="flex justify-between items-baseline mt-5">
           <p class="text-gradient-pink text-xl font-extrabold">{{ meme.info.title }}</p>
           <p class="text-gray-400 font-semibold text-sm">
-            {{ memeService.formatDate(meme)}}
+            {{ formatDate(meme) }}
           </p>
         </div>
 
@@ -49,7 +49,7 @@
         <!-- Buttons -->
         <div *ngIf="memeService.nearService.accountId">
           <!-- Donate -->
-          <button (click)="memeService.donate({ memeId: meme.id, amount: '1'})"
+          <button (click)="memeService.donate(meme.id)"
                   class="inline-block mt-5 w-full py-3 bg-gradient-to-r border-2 border-white hover:border-blue-600 transform active:scale-95 from-blue-500 to-blue-600 hover:text-blue-600 hover:from-white hover:to-white hover:shadow-xl text-white text-center font-semibold rounded-md duration-200">
             Donate 1 Ⓝ
           </button>
@@ -58,7 +58,7 @@
           <div class="flex space-x-2">
 
             <!-- Vote like -->
-            <button (click)="memeService.vote({ memeId: meme.id, value: 1 })"
+            <button (click)="memeService.vote({memeId: meme.id, value: 1})"
                     class="flex items-center justify-center mt-2 py-2 text-blue-600 text-xl font-bold w-full hover:bg-blue-600 hover:text-white rounded-md border-2 border-blue-600 transform active:scale-95 duration-200">
               <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"
                    fill="none">
@@ -70,7 +70,7 @@
             </button>
 
             <!-- Vote dislike -->
-            <button (click)="memeService.vote({ memeId: meme.id, value: -1 })"
+            <button (click)="memeService.vote({memeId: meme.id, value: -1})"
                     class="flex items-center justify-center mt-2 py-2 text-red-500 text-xl font-bold w-full hover:bg-red-500 hover:text-white rounded-md border-2 border-red-500 transform active:scale-95 duration-200">
               <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"
                    fill="none">
@@ -103,11 +103,7 @@
       <app-meme-card *ngIf="modalOpen"
                      [meme]="currentMeme"
                      [(open)]="modalOpen"
-                     [donate]="memeService.donate"
-                     [vote]="memeService.vote"
-                     [addComment]="memeService.addComment"
-                     [contractId]="memeService.nearService.CONTRACT_ID"
-                     [formatDate]="memeService.formatDate"
+                     [formatDate]="formatDate"
       ></app-meme-card>
     </div>
   </div>
