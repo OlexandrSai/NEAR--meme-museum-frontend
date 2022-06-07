@@ -13,6 +13,7 @@ export class MemeService {
   constructor(public nearService: NearService) {
   }
 
+  // get all memes
   async loadMemes() {
     this.err = null;
     try {
@@ -41,14 +42,14 @@ export class MemeService {
     }
   }
 
-  // get meme info
+  // get separate meme
   async getMeme(meme: any) {
     const memeContract: any = this.nearService.getMemeContract(meme);
 
     return memeContract.get_meme();
   };
 
-  // get meme comment`s
+  // get separate meme comment`s
   async getMemeComments(meme: any) {
     const memeContract: any = this.nearService.getMemeContract(meme);
 

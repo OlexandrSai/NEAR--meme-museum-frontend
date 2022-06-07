@@ -45,7 +45,7 @@ export class NearService {
   getMemeContract(meme: any) {
     return new Contract(
       this.wallet.account(),
-      meme + "." + this.CONTRACT_ID,
+      this.getMemeContractId(meme),
       {
         viewMethods: ['get_meme', 'get_recent_comments'],
         changeMethods: ['add_comment', 'donate', 'vote']
@@ -57,7 +57,7 @@ export class NearService {
   // functions to call contract Public VIEW methods
   // --------------------------------------------------------------------------
 
-  // function  to get memes
+  // get all memes
   async getMemes() {
     return await this.museumContract.get_meme_list();
   };
@@ -66,7 +66,7 @@ export class NearService {
   // functions to call contract Public CHANGE methods
   // --------------------------------------------------------------------------
 
-  // function  to add  meme
+  // add meme
   async addMeme({ meme, title, data, category }: { meme: any, title: any, data: any, category: any }) {
     const attachedDeposit = utils.format.parseNearAmount(environment.ADD_FEE);
 
@@ -95,5 +95,9 @@ export class NearService {
 
   restoreDefaultContract() {
     this.CONTRACT_ID = environment.CONTRACT_ID;
+  }
+
+  getMemeContractId(meme: any) {
+    return meme + "." + this.CONTRACT_ID
   }
 }
