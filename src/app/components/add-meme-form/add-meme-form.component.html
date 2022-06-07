@@ -5,19 +5,23 @@
       *ngFor="let field of formFields"
       class="mt-4 lg:mt-0"
     >
-      <p class="text-gray-400 pl-4">{{ field.label }}</p>
-      <input [placeholder]="field.label"  [(ngModel)]="field.value" [name]="field.id" class="w-64 lg:w-44 xl:w-64 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none pl-6">
-    </div>
+      <p class="text-gray-400 pl-4 lg:pl-0">{{ field.label }}</p>
 
-    <div class="mt-4 lg:mt-0">
-      <p class="text-gray-400 pl-4 lg:pl-0">Category</p>
-      <select [(ngModel)]="category" name="category" id="category" class="w-16 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none px-3">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select>
+      <input *ngIf="field.id !== 'category'; else elseBlock"
+             class="w-64 lg:w-44 xl:w-64 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none pl-6"
+             [placeholder]="field.label"
+             [(ngModel)]="field.value"
+             [name]="field.id"
+      >
+      <ng-template #elseBlock>
+        <select [(ngModel)]="field.value" [name]="field.id" class="w-16 mt-2 py-3 rounded-md border-2 border-gray-900 focus:border-blue-600 outline-none px-3">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </ng-template>
     </div>
     <div class="mt-4 lg:mt-0">
       <p class="hidden lg:block text-transparent">buttons</p>
