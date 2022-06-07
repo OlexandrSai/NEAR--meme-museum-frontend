@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MemeService } from "../../services/meme.service";
 
 @Component({
   selector: 'app-meme-card',
@@ -7,15 +8,13 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class MemeCardComponent {
   @Input() meme: any;
-  @Input() contractId: any;
-  @Input() donate: any;
-  @Input() vote: any;
-  @Input() addComment: any;
-  @Input() formatDate: any;
   @Input() open: any;
+  @Input() formatDate: any;
   @Output() openChange = new EventEmitter<boolean>()
   public comment = '';
-  constructor() { }
+
+  constructor(public memeService: MemeService) {
+  }
 
   closeModal() {
     this.open = false;
@@ -23,9 +22,6 @@ export class MemeCardComponent {
   }
 
   handleSubmit() {
-    this.addComment({
-      memeId: this.meme.id,
-      text: this.comment
-    })
+    return this.memeService.addComment({ memeId: this.meme.id, text: this.comment });
   }
 }

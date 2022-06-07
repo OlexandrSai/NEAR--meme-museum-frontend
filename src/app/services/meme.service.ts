@@ -1,8 +1,7 @@
-import {Injectable} from '@angular/core';
-import {NearService} from "./near.service";
-import {utils} from "near-api-js";
-import {format, fromUnixTime} from "date-fns";
-import * as BN from "bn.js";
+import { Injectable } from '@angular/core';
+import { NearService } from "./near.service";
+import { utils } from "near-api-js";
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -14,21 +13,12 @@ export class MemeService {
   constructor(public nearService: NearService) {
   }
 
-  // --------------------------------------------------------------------------
-  // functions to call contract Public VIEW methods
-  // --------------------------------------------------------------------------
-
-  // function  to get memes
-  getMemes() {
-    return this.nearService.wallet.account().viewFunction(this.nearService.CONTRACT_ID, "get_meme_list", {});
-  };
-
-  async updateMemes() {
+  async loadMemes() {
     this.err = null;
     try {
-      let memesIds = await this.getMemes();
+      let memesIds = await this.nearService.getMemes();
 
-      this.memes = await (
+      this.memes = (
         await Promise.all(
           memesIds.map(async (id: any) => {
             const info = await this.getMeme(id);
@@ -51,77 +41,66 @@ export class MemeService {
     }
   }
 
-  // function  to get  info about meme
-  getMeme(meme: any) {
-    const memeContractId = meme + "." + this.nearService.CONTRACT_ID;
-    return this.nearService.wallet.account().viewFunction(memeContractId, "get_meme", {});
+  // get meme info
+  async getMeme(meme: any) {
+    const memeContract: any = this.nearService.getMemeContract(meme);
+
+    return memeContract.get_meme();
   };
 
-  // function to get  meme`s  comment
-  getMemeComments(meme: any) {
-    const memeContractId = meme + "." + this.nearService.CONTRACT_ID;
-    return this.nearService.wallet.account().viewFunction(memeContractId, "get_recent_comments", {});
+  // get meme comment`s
+  async getMemeComments(meme: any) {
+    const memeContract: any = this.nearService.getMemeContract(meme);
+
+    return (await memeContract.get_recent_comments()).reverse();
   };
 
   // --------------------------------------------------------------------------
   // functions to call contract Public CHANGE methods
   // --------------------------------------------------------------------------
 
-  // function  to add  meme
-  addMeme({meme, title, data, category}: { meme: any, title: any, data: any, category: any }) {
-    category = parseInt(category)
-    const attachedDeposit: any = utils.format.parseNearAmount("3") ?? undefined;
-    const attachedDepositBN = new BN(attachedDeposit);
-    return this.nearService.wallet.account().functionCall({
-      contractId: this.nearService.CONTRACT_ID,
-      methodName: "add_meme",
-      gas: this.nearService.gas,
-      args: {meme, title, data, category},
-      attachedDeposit: attachedDepositBN,
-    });
+  // add meme
+  async addMeme(payload: any) {
+    await this.nearService.addMeme(payload);
+  }
+
+  // add comment
+  async addComment({ memeId, text }: { memeId: any, text: any }) {
+    const memeContract: any = await this.nearService.getMemeContract(memeId);
+
+    await memeContract.add_comment(
+      { text }
+    );
   };
 
-  // function  to  add comment
-  addComment({memeId, text}: { memeId: any, text: any }) {
-    const memeContractId = `${memeId}.${this.nearService.CONTRACT_ID}`;
-    return this.nearService.wallet.account().functionCall({
-      contractId: memeContractId,
-      methodName: "add_comment",
-      args: {text},
-    });
+  // donate
+  async donate(memeId: any) {
+    const memeContract: any = await this.nearService.getMemeContract(memeId)
+
+    await memeContract.donate(
+      {},
+      environment.GAS,
+      utils.format.parseNearAmount(environment.DONAT_FEE)
+    );
   };
 
-  //function to donate
-  donate({memeId, amount}: { memeId: any, amount: any }) {
-    const memeContractId = `${memeId}.${this.nearService.CONTRACT_ID}`;
-    const attachedDeposit: any = utils.format.parseNearAmount(amount) ?? undefined;
-    const attachedDepositBN = new BN(attachedDeposit);
-    return this.nearService.wallet.account().functionCall({
-      contractId: memeContractId,
-      methodName: "donate",
-      attachedDeposit: attachedDepositBN,
-      args: {}
-    });
-  };
-
-  //function to vote for the meme
-  vote({memeId, value}: { memeId: any, value: any }) {
-    const memeContractId = `${memeId}.${this.nearService.CONTRACT_ID}`;
-
-    return this.nearService.wallet.account().functionCall({
-      contractId: memeContractId,
-      methodName: "vote",
-      args: {value},
-    });
+  // vote for the meme
+  async vote({ memeId, value }: { memeId: any, value: any }) {
+    const memeContract: any = await this.nearService.getMemeContract(memeId);
+    await memeContract.vote({ value });
   };
 
   async updateContract(contractId: any) {
-    this.nearService.setContract(contractId);
-    await this.updateMemes();
+    try {
+      this.nearService.setContract(contractId);
+      await this.loadMemes();
+    } catch (e) {
+      this.err = e;
+      console.log(e)
+    }
   }
 
-  formatDate(data: any) {
-    let date = data.info ? data.info.created_at : data.created_at
-    return format(new Date(fromUnixTime(parseInt(date.substring(0, 10)))), "MMMM do yyyy")
+  getContract() {
+    return this.nearService.CONTRACT_ID;
   }
 }

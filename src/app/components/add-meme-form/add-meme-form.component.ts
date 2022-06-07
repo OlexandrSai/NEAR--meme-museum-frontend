@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {MemeService} from "../../services/meme.service";
+import { Component } from '@angular/core';
+import { MemeService } from "../../services/meme.service";
 
 @Component({
   selector: 'app-add-meme-form',
