@@ -66,7 +66,7 @@ export const addMeme = ({ meme, title, data, category }) => {
 // function  to  add comment
 // Contract class is not used because for each mem it will be needed to create new Contract instance for each function call
 export const addComment = ({ memeId, text }) => {
-  const memeContractId = `${memeId}.${CONTRACT_ID} `;
+  const memeContractId = `${memeId}.${CONTRACT_ID}`;
   return wallet.account().functionCall({
     contractId: memeContractId,
     methodName: "add_comment",
@@ -77,7 +77,7 @@ export const addComment = ({ memeId, text }) => {
 //function to donate
 // Contract class is not used because for each mem it will be needed to create new Contract instance for each function call
 export const donate = ({ memeId, amount }) => {
-  const memeContractId = `${memeId}.${CONTRACT_ID} `;
+  const memeContractId = `${memeId}.${CONTRACT_ID}`;
   return wallet.account().functionCall({
     contractId: memeContractId,
     methodName: "donate",
@@ -88,7 +88,9 @@ export const donate = ({ memeId, amount }) => {
 //function to vote for the meme
 // Contract class is not used because for each mem it will be needed to create new Contract instance for each function call
 export const vote = ({ memeId, value }) => {
-  const memeContractId = `${memeId}.${CONTRACT_ID} `;
+  console.log(memeId)
+  console.log(value)
+  const memeContractId = `${memeId}.${CONTRACT_ID}`;
   return wallet.account().functionCall({
     contractId: memeContractId,
     methodName: "vote",
