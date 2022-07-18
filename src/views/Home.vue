@@ -1,22 +1,11 @@
 <template>
-  
-    <Header 
-        :accountId="accountId"
-        :signIn="signIn"
-        :signOut="signOut"
-        :addMeme="addMeme"
-        :memes="memes"/>
 
-    <Memes 
-        :accountId="accountId"
-        :signIn="signIn"
-        :memes="memes"
-        :contractId="CONTRACT_ID"
-        :addComment="addComment"
-        :donate="donate"
-        :vote="vote"/>
+    <Header/>
 
-    <Footer/>
+    <Memes :accountId="accountId" :signIn="signIn" :memes="memes" :contractId="CONTRACT_ID" :addComment="addComment"
+        :donate="donate" :vote="vote" />
+
+    <Footer />
 </template>
 
 <script>
@@ -31,7 +20,7 @@ export default {
         Footer
     },
     setup() {
-        const { accountId, signIn,  signOut } = useWallet();
+        const { accountId, signIn, signOut } = useWallet();
         const { memes, addMeme, addComment, donate, vote, CONTRACT_ID } = useMemes();
 
         return {
