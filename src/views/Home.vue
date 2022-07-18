@@ -1,10 +1,7 @@
 <template>
-
-    <Header/>
-
+    <Header />
     <Memes :accountId="accountId" :signIn="signIn" :memes="memes" :contractId="CONTRACT_ID" :addComment="addComment"
         :donate="donate" :vote="vote" />
-
     <Footer />
 </template>
 
